@@ -1,36 +1,47 @@
-
 {
-  "name": "FEC Project",
+  "name": "fec-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack --mode development --watch",
+    "build-prod": "webpack --mode production",
+    "start": "webpack serve --hot --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Spaghetti/FEC-Project.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "clean": "rm dist/bundle.js",
-    "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development"
+  "bugs": {
+    "url": "https://github.com/Team-Spaghetti/FEC-Project/issues"
+  },
+  "homepage": "https://github.com/Team-Spaghetti/FEC-Project#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@hot-loader/react-dom": "^17.0.1",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.26.1",
+    "prettier": "^2.4.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0"
-  },
-  "devDependencies": {
-    "webpack": "^5.60.0",
-    "webpack-cli": "^4.9.1",
-    "babel-loader": "^8.2.3",
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@hot-loader/react-dom": "^17.0.1+4.13.0",
-    "css-loader": "^6.5.0",
-    "style-loader": "^3.3.1",
-    "eslint": "^8.1.0",
-    "eslint-plugin-react": "^7.26.1",
-    "prettier": "^2.4.1",
-    "@babel/preset-react": "^7.14.5",
-    "webpack-dev-server": "^4.3.1"
   }
 }
