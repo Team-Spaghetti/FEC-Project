@@ -66,7 +66,7 @@ routes.put(`/${1}/helpful`, (req, res) => {
     })
     .catch(err => {
       console.error(err);
-      res.end();;
+      res.end();
     })
 })
 
@@ -78,7 +78,7 @@ routes.put(`/${1}/report`, (req, res) => {
     })
     .catch(err => {
       console.error(err);
-      res.end();;
+      res.end();
     })
 })
 
