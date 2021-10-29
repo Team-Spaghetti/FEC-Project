@@ -76,7 +76,7 @@ app.get('/reviews', (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(400).send('failed :(');
+      res.status(400).send(err);
     });
 });
 
