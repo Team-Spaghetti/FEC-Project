@@ -1,6 +1,5 @@
 var express = require('express');
 var axios = require('axios');
-// var { urlencoded } = require('body-parser');
 var cors = require('cors');
 var app = express();
 var questions = require('./QuestionsAndAnswers/questions');
@@ -8,7 +7,6 @@ var answers = require('./QuestionsAndAnswers/answers');
 
 app.use(express.json());
 app.use(cors());
-// app.use(express.urlencoded({ extended: true }))
 
 app.use('/qa/questions', questions);
 app.use('/qa/answers', answers);
