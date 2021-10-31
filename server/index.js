@@ -5,7 +5,7 @@ var cors = require('cors');
 
 var questions = require('./QuestionsAndAnswers/questions');
 var answers = require('./QuestionsAndAnswers/answers');
-var reviews = require('./reviews.js');
+var reviews = require('./reviews/reviews.js');
 var products = require('./products&cart/products.js');
 var cart = require('./products&cart/cart.js');
 
