@@ -1,20 +1,23 @@
 import Button from '@mui/material/Button';
 import React from "react";
-import { hot } from 'react-hot-loader/root';
+import Overview from './components/overview/overview.js'
+import { ProductProvider } from './contexts/ProductContext.js'
 
-class App extends React.Component {
-
-  render() {
-    const { name } = this.props;
-    return (
-      <>
-        <h1>
-          Hello {name}, my ARCH NEMESIS!
-        </h1>
-        <Button variant="contained">Hello World</Button>
-      </>
-    );
-  }
+function App() {
+  return (
+    <ProductProvider>
+      <Overview />
+    </ProductProvider>
+  )
 }
 
-export default hot(App);
+export default (App);
+
+/**
+ * Context:
+ *    Product_id: int, because we're working with one product
+ *    Product Styles
+ *    Reviews Array
+ *    Questions Array
+ *    Answers Array
+ */
