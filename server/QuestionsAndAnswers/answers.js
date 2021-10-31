@@ -4,7 +4,7 @@ var url = require('url');
 var config = require('../../config');
 var endPoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/:hr-atx/qa/answers'
 
-var auth = { headers: { 'Authorization': `${config}` }, params: { product_id: 1 } };
+var auth = { headers: { 'Authorization': `${config}` } };
 
 routes.put(`/:answer_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);

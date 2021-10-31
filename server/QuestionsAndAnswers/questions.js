@@ -5,6 +5,7 @@ var config = require('../../config');
 var endPoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/qa/questions';
 
 var auth = { headers: { 'Authorization': `${config}` }};
+// product_id = 38323, question_id = 542812
 
 routes.get('/', (req, res) => {
   axios.get(endPoint, { headers: { 'Authorization': `${config}` }, params: { product_id: req.query.product_id } })
@@ -45,7 +46,7 @@ routes.post(`/:question_id/answer`, (req, res) => {
 
 routes.put(`/:question_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);
-  axios.put(endPoint + `/${req.params.question_id}/${path}`, { question_id: req.params.question_id }, { headers: { 'Authorization': `${config}` } })
+  axios.put(endPoint + `/${req.params.question_id}/${path}`, { question_id: req.params.question_id }, auth)
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.error(err);
