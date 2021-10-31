@@ -8,7 +8,12 @@ var auth = { headers: { 'Authorization': `${config}` }};
 // product_id = 38323, question_id = 542812
 
 routes.get('/', (req, res) => {
-  axios.get(endPoint, { headers: { 'Authorization': `${config}` }, params: { product_id: req.query.product_id } })
+  axios
+    .get(endPoint,{
+      headers: { 'Authorization': `${config}` },
+      params: { product_id: req.query.product_id }
+      }
+    )
     .then(response => res.status(200).send(response.data))
     .catch(err => {
       console.error(err);
@@ -17,7 +22,8 @@ routes.get('/', (req, res) => {
 });
 
 routes.get(`/:question_id/answers`, (req, res) => {
-  axios.get(endPoint + `/${req.params.question_id}/answers`, auth)
+  axios
+    .get(endPoint + `/${req.params.question_id}/answers`, auth)
     .then(response => res.status(200).send(response.data))
     .catch(err => {
       console.error(err);
@@ -26,8 +32,11 @@ routes.get(`/:question_id/answers`, (req, res) => {
 })
 
 routes.post(`/:product_id/question`, (req, res) => {
-  let body = req.body.body, name = req.body.name, email = req.body.email, product_id = req.body.product_id;
-  axios.post(endPoint, { body, name, email, product_id }, auth)
+  let body = req.body.body, name = req.body.name,
+      email = req.body.email, product_id = req.body.product_id;
+  axios
+    .post(endPoint,
+      { body, name, email, product_id }, auth)
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.log(err.response.status);
@@ -36,7 +45,18 @@ routes.post(`/:product_id/question`, (req, res) => {
 })
 
 routes.post(`/:question_id/answer`, (req, res) => {
-  axios.post(endPoint + `/${req.params.question_id}/answers`, { body: req.body.body, name: req.body.name, email: req.body.email, photos: req.body.photos }, { headers: { 'Authorization': `${config}` }, params: { question_id: req.params.question_id } })
+  axios
+    .post(
+      endPoint + `/${req.params.question_id}/answers`,
+     {
+       body: req.body.body, name: req.body.name,
+       email: req.body.email, photos: req.body.photos
+     },
+      {
+      headers: { 'Authorization': `${config}` },
+      params: { question_id: req.params.question_id }
+      }
+    )
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.error(err);
@@ -46,7 +66,10 @@ routes.post(`/:question_id/answer`, (req, res) => {
 
 routes.put(`/:question_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);
-  axios.put(endPoint + `/${req.params.question_id}/${path}`, { question_id: req.params.question_id }, auth)
+  axios
+    .put(
+      endPoint + `/${req.params.question_id}/${path}`,
+      { question_id: req.params.question_id }, auth)
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.error(err);
