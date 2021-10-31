@@ -1,6 +1,6 @@
 var routes = require('express').Router();
 var axios = require('axios');
-var token = require('../config.js').API_KEY;
+var token = require('../../config.js')
 var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/reviews';
 
 
