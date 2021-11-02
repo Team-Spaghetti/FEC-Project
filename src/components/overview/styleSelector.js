@@ -2,17 +2,20 @@ import React from 'react';
 import { useProduct } from '../../contexts/ProductContext.js'
 
 export default function StyleSelector() {
-  const { styles, styleId, currentStyle } = useProduct()
-  const [styleIdValue, setStyleIdValue] = styleId
-  const [currentStyleValue, setCurrentStyleValue] = currentStyle
+  const { styles, styleReducer } = useProduct()
+  const [stateValue, setStateValue] = styleReducer
 
   function setStyleOnClick(e) {
-    setStyleIdValue(parseInt(e.target.id));
+    var currentStyle;
     for (const style of styles) {
-      if (Object.values(style).includes(styleIdValue)) {
-        setCurrentStyleValue(style)
+      if (Object.values(style).includes(stateValue.styleId)) {
+        currentStyle = style
       }
     }
+    setStateValue({
+      currentStyle: currentStyle,
+      styleId: parseInt(e.target.id)
+    })
   }
 
   return (

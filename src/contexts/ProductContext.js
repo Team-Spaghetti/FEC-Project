@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -10,8 +10,10 @@ export function useProduct() {
 export function ProductProvider({ children }) {
   const [product, setProduct] = useState("");
   const [styles, setStyles] = useState([]);
-  const [styleId, setStyleId] = useState();
-  const [currentStyle, setCurrentStyle] = useState([]);
+  const [state, setState] = useReducer(
+    (state, newState) => ({...state, ...newState}),
+    {styleId: null, currentStyle: []}
+  )
 
   function getProduct() {
     axios
@@ -29,7 +31,7 @@ export function ProductProvider({ children }) {
       .get("http://localhost:3000/products/38322/styles")
       .then((response) => {
         setStyles(response.data.results);
-        setStyleId(response.data.results[0].style_id);
+        setState({styleId: response.data.results[0].style_id});
       })
       .catch((err) => {
         console.error(err);
@@ -46,8 +48,7 @@ export function ProductProvider({ children }) {
       value={{
         product: product,
         styles: styles,
-        styleId: [styleId, setStyleId],
-        currentStyle: [currentStyle, setCurrentStyle],
+        styleReducer: [state, setState]
       }}
     >
       {children}
