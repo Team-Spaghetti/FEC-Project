@@ -4,7 +4,7 @@ import { useProduct } from '../../contexts/ProductContext.js'
 export default function ProductInfo() {
   const { product, styleReducer } = useProduct()
   const [styleValue, setStyleValue] = styleReducer
-  console.log(styleValue)
+  console.log(styleValue.currentStyle)
   return (
     <div>
       <div>
@@ -14,8 +14,9 @@ export default function ProductInfo() {
         <p>Product Category: {product.category}</p>
         <h2>Product Name: {product.name}</h2>
         {styleValue.currentStyle &&
-          <p>Original Price: {styleValue.currentStyle.original_price}</p>
-        }
+          <p>Original Price: {styleValue.currentStyle.original_price}</p>}
+        {styleValue.currentStyle && styleValue.currentStyle.sale_price &&
+        <p>Sale Price: {styleValue.currentStyle.sale_price}</p>}
       </div>
       <div>
         <p>Share on social media!</p>
