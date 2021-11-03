@@ -12,7 +12,7 @@ export function ProductProvider({ children }) {
   const [styles, setStyles] = useState([]);
   const [state, setState] = useReducer(
     (state, newState) => ({...state, ...newState}),
-    {styleId: null, currentStyle: []}
+    {styleId: null, currentStyle: null}
   )
 
   function getProduct() {
@@ -42,6 +42,18 @@ export function ProductProvider({ children }) {
     getProduct();
     getStyles();
   }, []);
+
+  useEffect(() => {
+    var currentStyle;
+    for (const style of styles) {
+      if (Object.values(style).includes(state.styleId)) {
+        currentStyle = style
+      }
+    }
+    setState({
+      currentStyle: currentStyle
+    })
+  }, [state.styleId])
 
   return (
     <ProductContext.Provider
