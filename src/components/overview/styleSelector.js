@@ -19,7 +19,7 @@ export default function StyleSelector() {
             key={style.style_id}
             id={style.style_id}
             onClick={setStyleOnClick}
-            className="thumbnails"
+            className={styleValue.styleId === style.style_id ? 'style-thumbnails selected-style' : 'style-thumbnails'}
             src={style.photos[0].thumbnail_url}
           ></img>
         );

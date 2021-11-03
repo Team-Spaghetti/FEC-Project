@@ -1,8 +1,5 @@
-.thumbnails {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
+.app{
+  display: flex;
 }
 
 .original-price {
@@ -11,4 +8,17 @@
 
 .sale-price {
   color: red;
+}
+
+.style-thumbnails {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.selected-style {
+  width: 100px;
+  height: 100px;
 }

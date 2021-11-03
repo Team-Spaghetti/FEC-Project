@@ -5,7 +5,7 @@ export default function ProductInfo() {
   const { product, styleReducer } = useProduct();
   const [styleValue, setStyleValue] = styleReducer;
   return (
-    <div>
+    <div className="product-info">
       <div>
         <p>Reviews: </p>
       </div>
