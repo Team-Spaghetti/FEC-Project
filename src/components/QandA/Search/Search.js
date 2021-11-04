@@ -10,7 +10,7 @@ var Search = () => {
     setText('');
   }
   return (
-    <div>
+    <div className="sa">
       <form onSubmit={handleSubmit}>
         <input value={text} onChange={e => setText(e.target.value)} placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'/>
       </form>

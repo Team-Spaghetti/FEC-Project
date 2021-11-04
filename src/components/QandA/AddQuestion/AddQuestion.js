@@ -5,7 +5,7 @@ var AddQuestion = () => {
     // will execute logic for presenting modal form to user to fill up
   }
   return (
-    <div>
+    <div className="aq">
       <button onClick={handleClick}>Add A Question +</button>
     </div>
   )

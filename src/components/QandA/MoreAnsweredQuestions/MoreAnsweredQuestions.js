@@ -5,7 +5,7 @@ var MoreAnsweredQuestions = () => {
     // will execute logic for presenting modal form to user to fill up
   }
   return (
-    <div>
+    <div className="ma">
       <button onClick={handleClick}>More Answered Questions</button>
     </div>
   )

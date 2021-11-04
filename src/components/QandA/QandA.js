@@ -25,24 +25,32 @@ import MoreAnsweredQuestion from './MoreAnsweredQuestions/MoreAnsweredQuestions'
 // and provide these to the questions list
 // more questions will increase the number of questions provided to questions list
 
+// after setting up basic html and getting components to run
+// style to produce effect
+// build tests for components
+
+// problem to come back to
+// it appears axios request not made on load, but after page refreses
+
 var QandA = () => {
 
-  var id = useProduct().product, questions = [];
+  var id = useProduct().product;
+  var [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     axios
       .get('http://localhost:3000/qa/questions', { params: { product_id: 38323 } })
       .then(response => {
-        questions = response.data.results;
-        console.log(questions);
+        setQuestions(response.data.results);
       })
       .catch(err => console.error(err));
   }, [])
 
   return(
-    <div>
-      <QuestionList questions={questions}/>
+    <div className="qa">
+      <div className="QandATitle">QUESTIONS & ANSWERS</div>
       <Search />
+      <QuestionList questions={questions} />
       <AddQuestion />
       <MoreAnsweredQuestion />
     </div>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import question from './Question'
+import Question from './Question'
 
-var QuestionsList = ({questions}) => {
+var QuestionList = ({questions}) => {
   return(
-    <div>
-      {questions.map(question => <Question question={question}/>)}
+    <div className="ql">
+      {questions.map(question => <Question key={question.question_id} question={question}/>)}
     </div>
   )
 }
 
-export default QuestionsList;
+export default QuestionList;
