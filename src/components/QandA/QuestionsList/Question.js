@@ -14,7 +14,7 @@ var Question = ({question}) => {
     <div className="q" >
       <div className="qPortion">
         <span className="actualQ"><b> Q: {question.question_body} </b></span>
-        <span className="qsubs"> Helpful?
+        <span className="subs"> Helpful?
           <button className="helpful"><u>Yes</u>({question.question_helpfulness})</button>
           &nbsp; | &nbsp;
           <button className="addA"><u>Add Answer</u></button>

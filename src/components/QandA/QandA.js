@@ -46,13 +46,14 @@ var QandA = () => {
       .catch(err => console.error(err));
   }, [])
 
+
+
   return(
     <div className="qa">
       <div className="QandATitle">QUESTIONS & ANSWERS</div>
       <Search />
       <QuestionList questions={questions} />
       <AddQuestion />
-      <MoreAnsweredQuestion />
     </div>
   )
 }

@@ -4,13 +4,12 @@ import React, { useEffect, useState } from 'react';
 // make answer_name display seller if seller
 
 var Answer = ({answer}) => {
-  console.log('answer')
   return(
     <div className="a">
       <div className="aPortion">
         <b>A: </b>{answer.body}
       </div>
-      <div className="asubs">
+      <div className="subs">
         by {`${answer.answerer_name}, ${answer.date}`}
         &nbsp; | &nbsp;
         Helpful?
