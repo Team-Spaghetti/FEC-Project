@@ -18,7 +18,6 @@ export function ProductProvider({ children }) {
   function setNewProduct() {
     axios.get(`http://localhost:3000/products/${productId}`)
       .then(response => {
-        console.log(response.data)
         setProduct(response.data.id)
       })
       .catch(err => {

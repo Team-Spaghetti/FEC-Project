@@ -16,7 +16,7 @@ routes.get('/', (req, res) => {
     )
     .then(response => res.status(200).send(response.data))
     .catch(err => {
-      console.error(err);
+      // console.error(err);
       res.status(400).end();
     })
 });
