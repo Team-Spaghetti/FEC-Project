@@ -10,10 +10,10 @@ function App() {
     <div>
     <ProductProvider>
       <Overview />
+      <ReviewProvider>
+        <ReviewList />
+      </ReviewProvider>
     </ProductProvider>
-    <ReviewProvider>
-      <ReviewList />
-    </ReviewProvider>
     </div>
   )
 }
