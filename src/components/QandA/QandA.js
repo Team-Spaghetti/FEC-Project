@@ -51,7 +51,6 @@ var QandA = () => {
   return(
     <div className="qa">
       <div className="QandATitle">QUESTIONS & ANSWERS</div>
-      <Search />
       <QuestionList questions={questions} />
       <AddQuestion />
     </div>
@@ -59,3 +58,7 @@ var QandA = () => {
 }
 
 export default QandA;
+
+//Add addQuestion modal
+// add an answer modal
+// search functionality
