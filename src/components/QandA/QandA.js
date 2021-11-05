@@ -45,6 +45,7 @@ var QandA = () => {
       })
       .catch(err => console.error(err));
   }, [])
+  console.log(questions)
 
 
 
