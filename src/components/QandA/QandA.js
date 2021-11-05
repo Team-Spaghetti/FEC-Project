@@ -39,7 +39,7 @@ var QandA = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/qa/questions', { params: { product_id: 38323 } })
+      .get('http://localhost:3000/qa/questions', { params: { product_id: 38222 } })
       .then(response => {
         setQuestions(response.data.results);
       })

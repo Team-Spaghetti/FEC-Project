@@ -8,6 +8,7 @@ var endPoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/:hr-atx/qa/answers'
 
 var auth = { headers: { 'Authorization': `${config}` } };
 
+// Report or mark an answer as helpful
 routes.put(`/:answer_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);
   axios

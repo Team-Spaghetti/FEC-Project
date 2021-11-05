@@ -30,13 +30,10 @@ var Question = ({question}) => {
           {
           helpful > 0 ?
               <button>
-                {
-              `Yes(${question.question_helpfulness + 1})`
-                }
+                {`Yes(${question.question_helpfulness + 1})`}
               </button> :
           <button className="helpful" onClick={helpfulFunc}>
-            <u>Yes</u>
-            ({question.question_helpfulness})
+            <u>Yes</u>({question.question_helpfulness})
           </button>
           }
           &nbsp; | &nbsp;

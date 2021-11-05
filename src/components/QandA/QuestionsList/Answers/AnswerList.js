@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Answer from './Answer'
+import Answer from './Answer';
+import MoreAns from './MoreAns';
 
 var AnswerList = ({ answers }) => {
-  var [ansIds, setAnswers] = useState(Object.keys(answers).slice(0,2));
-  var numAns = Object.keys(answers).length
+  var keys = Object
+    .keys(answers)
+    .sort((key1, key2) => answers[key2].helpfulness - answers[key1].helpfulness);
+
+  var [ansIds, setAnswers] = useState(keys.slice(0,2));
+  useEffect(() => {}, ansIds);
+  var numAns = Object.keys(answers).length;
+  var loadAns = (display) => {
+    display === 'LOAD MORE ANSWERS' ? setAnswers(keys) : setAnswers(keys.slice(0, 2));
+  }
 
   // on clicking load more answers
   // change the displayed answers to all answers
   // rerender the component
-  var handleLoad = () => setAnswers(Object.keys(answers));
-  useEffect(() => { }, [ansIds])
+
   if (!ansIds[0]) {
     return (<div></div>);
   }else {
@@ -17,9 +25,17 @@ var AnswerList = ({ answers }) => {
     <div className="al">
       {ansIds.map(id =>
         <Answer answer={answers[id]} key={id} />)}
-      {numAns > 2 ? <button onClick={handleLoad}>LOAD MORE ANSWERS</button> : ''}
+      {numAns > 2 ?
+      <MoreAns numAns={numAns} loadAns={loadAns} /> : ''}
     </div>
   )}
 }
 
 export default AnswerList;
+
+// SORT answer by helpfulness
+// on getting answers,
+// sort them
+// to sort the answers
+// for each key, check helpfulness of object
+// if greater, put to front

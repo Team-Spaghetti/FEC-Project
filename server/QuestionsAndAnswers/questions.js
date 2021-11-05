@@ -7,6 +7,7 @@ var endPoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/qa/questions
 var auth = { headers: { 'Authorization': `${config}` }};
 // product_id = 38323, question_id = 542812
 
+// Get all questions for a product
 routes.get('/', (req, res) => {
   axios
     .get(endPoint,{
@@ -21,6 +22,7 @@ routes.get('/', (req, res) => {
     })
 });
 
+// Get all answers for a question
 routes.get(`/:question_id/answers`, (req, res) => {
   axios
     .get(endPoint + `/${req.params.question_id}/answers`, auth)
@@ -31,6 +33,7 @@ routes.get(`/:question_id/answers`, (req, res) => {
     })
 })
 
+// Add a question to a product
 routes.post(`/:product_id/question`, (req, res) => {
   let body = req.body.body, name = req.body.name,
       email = req.body.email, product_id = req.body.product_id;
@@ -44,6 +47,7 @@ routes.post(`/:product_id/question`, (req, res) => {
     })
 })
 
+// Add an answer for a particular question
 routes.post(`/:question_id/answer`, (req, res) => {
   axios
     .post(
@@ -64,6 +68,7 @@ routes.post(`/:question_id/answer`, (req, res) => {
     })
 })
 
+// Report or mark a question as helpful
 routes.put(`/:question_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);
   axios

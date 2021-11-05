@@ -31,13 +31,21 @@ var Answer = ({answer}) => {
         <b>A: </b>{answer.body}
       </div>
       <div className="subs">
-        by {`${answer.answerer_name}, ${answer.date}`}
+        by {`${answer.answerer_name}, ${new Date(answer.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'utc'
+        })}`}
         &nbsp; | &nbsp;
         Helpful?
         {
           helpful > 0 ?
-            <button>{`Yes(${answer.helpfulness + 1})`}</button> :
-            <button className="helpful" onClick={helpfulFunc}><u>Yes</u>({answer.helpfulness})
+            <button>
+              {`Yes(${answer.helpfulness + 1})`}
+            </button> :
+            <button className="helpful" onClick={helpfulFunc}>
+              <u>Yes</u>({answer.helpfulness})
             </button>
         }
         &nbsp; | &nbsp;
@@ -59,3 +67,5 @@ export default Answer;
 // store states that'll check of marked as helpful or reported
 // if marked as helpful, render text
 // if reported, render reported
+
+// checking if seller is author
