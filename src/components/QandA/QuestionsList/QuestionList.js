@@ -18,10 +18,8 @@ var QuestionList = ({questions}) => {
       setDisplay('More Answered Questions')
      } else chooseQuestions(questions.filter(question => question.question_body.includes(text)));
   };
-  useEffect(() => {chooseQuestions(questions.slice(0,2))}, [questions]);
 
-  // selected = selected.length > 0 ? selected : questions.slice(0,2);
-  console.log(selected);
+  useEffect(() => {chooseQuestions(questions.slice(0,2))}, [questions]);
 
   return(
     <div className="ql">

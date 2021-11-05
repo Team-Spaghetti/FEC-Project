@@ -10,7 +10,7 @@ var MoreAns = ({ numAns, loadAns }) => {
   // curious as to how I can do this, no function
   useEffect(() => { }, [display]);
   return (
-    <div className="ma">
+    <div className="maa">
       {numAns > 2 ?
         <button onClick={handleClick}>
           {display}

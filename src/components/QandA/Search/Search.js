@@ -6,7 +6,6 @@ var Search = ({handleSearch, setText}) => {
     // will take method passed from qandq then use
     // method to modify what questions will be passed to question list
     e.preventDefault();
-    handleSearch()
     setText('');
   }
   var handleChange = e => {
