@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-var MoreAnsweredQuestions = ({numQuestions, loadQuestions}) => {
-  var [display, setDisplay] = useState('More Answered Questions')
+var MoreAnsweredQuestions = ({numQuestions, loadQuestions, display, setdisplay}) => {
 
   var handleClick = () => {
     loadQuestions(display);

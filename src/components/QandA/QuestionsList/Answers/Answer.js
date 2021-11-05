@@ -69,3 +69,4 @@ export default Answer;
 // if reported, render reported
 
 // checking if seller is author
+// can't get seller info from product

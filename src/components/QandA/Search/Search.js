@@ -11,7 +11,7 @@ var Search = ({handleSearch, setText}) => {
   }
   var handleChange = e => {
     setText(e.target.value);
-    // handleSearch();
+    handleSearch();
   }
   return (
     <div className="sa">

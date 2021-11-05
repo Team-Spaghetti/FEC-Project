@@ -5,10 +5,11 @@ import MoreAns from './MoreAns';
 var AnswerList = ({ answers }) => {
   var keys = Object
     .keys(answers)
-    .sort((key1, key2) => answers[key2].helpfulness - answers[key1].helpfulness);
+    .sort((key1, key2) =>
+    answers[key1].answerer_name === 'Seller' ? -1 : answers[key2].answerer_name === 'Seller' ? 1 : answers[key1].helpfulness > answers[key2].helpfulness ? -1: 1);
 
   var [ansIds, setAnswers] = useState(keys.slice(0,2));
-  useEffect(() => {}, ansIds);
+  useEffect(() => {}, [ansIds]);
   var numAns = Object.keys(answers).length;
   var loadAns = (display) => {
     display === 'LOAD MORE ANSWERS' ? setAnswers(keys) : setAnswers(keys.slice(0, 2));
