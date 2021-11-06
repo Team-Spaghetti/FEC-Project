@@ -12,18 +12,21 @@ export default function StyleSelector() {
   }
 
   return (
-    <div>
-      {styles.map(style => {
-        return (
-          <img
-            key={style.style_id}
-            id={style.style_id}
-            onClick={setStyleOnClick}
-            className={styleValue.styleId === style.style_id ? 'style-thumbnails selected-style' : 'style-thumbnails'}
-            src={style.photos[0].thumbnail_url}
-          ></img>
-        );
-      })}
+    <div className="style-component">
+      <span>Styles</span>
+      <div className="style-container">
+        {styles.map(style => {
+          return (
+            <img
+              key={style.style_id}
+              id={style.style_id}
+              onClick={setStyleOnClick}
+              className={styleValue.styleId === style.style_id ? 'style-thumbnails selected-style' : 'style-thumbnails'}
+              src={style.photos[0].thumbnail_url}
+            ></img>
+          );
+        })}
+      </div>
     </div>
   );
 }

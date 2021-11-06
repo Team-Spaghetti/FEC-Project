@@ -70,7 +70,6 @@ export default function Cart() {
     <div>
       <div>
         <form onSubmit={addToCart} className="cart-form">
-          <label>Size Selector</label>
           <select value={selected} onChange={setSkuOnChange}>
             <option>Select Size</option>
             {skus &&
@@ -83,7 +82,6 @@ export default function Cart() {
               })}
           </select>
           <br></br>
-          <label>Quantity Selector</label>
           <select name="quantity">
             {skus &&
               sku &&
@@ -96,7 +94,7 @@ export default function Cart() {
                 );
               })}
           </select>
-          <button type="submit">Add to Cart!</button>
+          <button type="submit" className="add-to-cart-button">Add to Cart!</button>
         </form>
       </div>
     </div>

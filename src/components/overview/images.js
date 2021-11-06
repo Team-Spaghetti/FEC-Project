@@ -6,7 +6,7 @@ function Images() {
   const { styleReducer } = useProduct()
   const [styleVal, setStyleVal] = styleReducer
   const [images, setImages] = useState()
-  console.log(images)
+
   useEffect(() => {
     if (styleVal.currentStyle) {
       var photos = Object.values(styleVal.currentStyle.photos)
@@ -21,7 +21,7 @@ function Images() {
   }, [styleVal])
 
   return (
-    images ? <ImageGallery items={images} thumbnailPosition='left' useBrowserFullscreen={false}/> : <p>lol</p>
+    images ? <ImageGallery items={images} thumbnailPosition='left' useBrowserFullscreen={false}/> : <p>No product Selected</p>
   )
 }
 

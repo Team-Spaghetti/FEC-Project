@@ -12,10 +12,10 @@ export default function ProductInfo() {
       <div>
         <p>Reviews: </p>
       </div>
-      <div>
+      <div className="product-name">
         <p>{product.category}</p>
         <h2>{product.name}</h2>
-        <div>
+        <div className="prices">
           {styleValue.currentStyle && styleValue.currentStyle.sale_price ? (
             <div>
               <p className='original-price'>${styleValue.currentStyle.original_price}</p>

@@ -11,10 +11,10 @@ export default function Overview() {
     <div>
       <Container>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} md={9}>
             <Images />
           </Grid>
-          <Grid item xs={12} sm={4} container spacing={2} direction="column">
+          <Grid item xs={12} md={3} container spacing={2} direction="column">
             <Grid item xs={1}>
               <ProductInfo />
             </Grid>
