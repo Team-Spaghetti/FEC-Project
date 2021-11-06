@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useProduct } from "../../contexts/ProductContext.js";
 import axios from "axios";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default function Cart() {
   const { styleReducer } = useProduct();
@@ -65,7 +69,7 @@ export default function Cart() {
   return (
     <div>
       <div>
-        <form onSubmit={addToCart}>
+        <form onSubmit={addToCart} className="cart-form">
           <label>Size Selector</label>
           <select value={selected} onChange={setSkuOnChange}>
             <option>Select Size</option>
