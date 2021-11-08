@@ -14,12 +14,3 @@ function App() {
 }
 
 export default (App);
-
-/**
- * Context:
- *    Product_id: int, because we're working with one product
- *    Product Styles
- *    Reviews Array
- *    Questions Array
- *    Answers Array
- */
