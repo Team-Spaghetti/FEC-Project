@@ -2,17 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import AnswerList from './Answers/AnswerList';
 import axios from 'axios';
-// will take a question object then populate part of the componet with question info and pass answers part to answers component
-// will pass answer portion of question to answer list
-// answer list will comprise answers and depending on whether more answers are clicked will display answers accordingly
-// add answer will be component that will present form modal for new answer input
-// load answer will be a button that'll show load more answers
-// must figure out logic to use for choosing when to show load more answers, can apply this logic to load more questions button
-// helpfulness will be a button that'll send a put request, on click, convert from button to text
-// same with report
+// import AddAnswer from './Answers/AddAnswer';
+
 var Question = ({question}) => {
   var [helpful, markHelpful] = useState(0);
-  useEffect(() => {}, [helpful])
+  useEffect(() => {}, [helpful]);
+  var [display, setDisplay] = useState(false)
+  var handleOpen = () => {
+    setDisplay(true)
+    // displays the modal
+    // sets display of modal into block
+  }
+  var handleClose = () => {
+    setDisplay(false)
+  }
 
   var helpfulFunc = () => {
     markHelpful(1);
@@ -37,7 +40,9 @@ var Question = ({question}) => {
           </button>
           }
           &nbsp; | &nbsp;
-          <button className="addA"><u>Add Answer</u></button>
+          <button onClick={handleOpen} className="aaBtn"><u>Add Answer</u>
+          </button>
+          {/* <AddAnswer display={display} handleClose={handleClose} handleOpen={handleOpen}/> */}
         </span>
       </div>
       <AnswerList answers={question.answers} />
@@ -46,8 +51,6 @@ var Question = ({question}) => {
 }
 
 export default Question;
-
-
 
 // store state that will check to see if marked as helpful
 // if marked as helpful, render text
