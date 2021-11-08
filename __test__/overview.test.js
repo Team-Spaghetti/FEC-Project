@@ -1,13 +1,21 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Overview from '../src/components/overview/overview.js'
 import Enzyme from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import ProductInfo from '../src/components/overview/productInfo.js';
+import { ProductProvider } from '../src/contexts/ProductContext.js'
 
 Enzyme.configure({ adapter: new Adapter() });
 
-test ('overview displays correct product ID after click', () => {
-  const overview = shallow(
-    <Overview />
-  );
-});
+
+const wrapper = mount(
+  <ProductProvider>
+    <ProductInfo />
+  </ProductProvider>
+)
+
+// describe("React testing", () => {
+//   test("test", () => {
+//     console.log(wrapper.debug())
+//   })
+// });

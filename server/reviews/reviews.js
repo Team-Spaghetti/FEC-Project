@@ -1,7 +1,7 @@
-var routes = require('express').Router();
-var axios = require('axios');
-var token = require('../../config.js')
-var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/reviews';
+const routes = require('express').Router();
+const axios = require('axios');
+const token = require('../../config.js')
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/reviews';
 
 
 //route for product reviews
