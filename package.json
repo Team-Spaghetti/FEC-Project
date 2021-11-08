@@ -53,6 +53,7 @@
     "cors": "^2.8.5",
     "eslint-config-airbnb": "^18.2.1",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "nodemon": "^2.0.14",
     "react": "^17.0.2",
     "react-carousel-minimal": "^1.4.1",
