@@ -48,6 +48,7 @@ button:hover{
   text-decoration: none;
   cursor:pointer;
 @import "~react-image-gallery/styles/css/image-gallery.css";
+}
 
 body{
   font-family: 'Roboto', sans-serif;
