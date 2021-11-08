@@ -5,18 +5,27 @@ var config = require('../../config');
 var endPoint = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx/qa/questions';
 
 var auth = { headers: { 'Authorization': `${config}` }};
+// product_id = 38323, question_id = 542812
 
+// Get all questions for a product
 routes.get('/', (req, res) => {
-  axios.get(endPoint, { headers: { 'Authorization': `${config}` }, params: { product_id: req.query.product_id } })
+  axios
+    .get(endPoint,{
+      headers: { 'Authorization': `${config}` },
+      params: { product_id: req.query.product_id }
+      }
+    )
     .then(response => res.status(200).send(response.data))
     .catch(err => {
-      console.error(err);
+      // console.error(err);
       res.status(400).end();
     })
 });
 
+// Get all answers for a question
 routes.get(`/:question_id/answers`, (req, res) => {
-  axios.get(endPoint + `/${req.params.question_id}/answers`, auth)
+  axios
+    .get(endPoint + `/${req.params.question_id}/answers`, auth)
     .then(response => res.status(200).send(response.data))
     .catch(err => {
       console.error(err);
@@ -24,9 +33,13 @@ routes.get(`/:question_id/answers`, (req, res) => {
     })
 })
 
+// Add a question to a product
 routes.post(`/:product_id/question`, (req, res) => {
-  let body = req.body.body, name = req.body.name, email = req.body.email, product_id = req.body.product_id;
-  axios.post(endPoint, { body, name, email, product_id }, auth)
+  let body = req.body.body, name = req.body.name,
+      email = req.body.email, product_id = req.body.product_id;
+  axios
+    .post(endPoint,
+      { body, name, email, product_id }, auth)
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.log(err.response.status);
@@ -34,8 +47,20 @@ routes.post(`/:product_id/question`, (req, res) => {
     })
 })
 
+// Add an answer for a particular question
 routes.post(`/:question_id/answer`, (req, res) => {
-  axios.post(endPoint + `/${req.params.question_id}/answers`, { body: req.body.body, name: req.body.name, email: req.body.email, photos: req.body.photos }, { headers: { 'Authorization': `${config}` }, params: { question_id: req.params.question_id } })
+  axios
+    .post(
+      endPoint + `/${req.params.question_id}/answers`,
+     {
+       body: req.body.body, name: req.body.name,
+       email: req.body.email, photos: req.body.photos
+     },
+      {
+      headers: { 'Authorization': `${config}` },
+      params: { question_id: req.params.question_id }
+      }
+    )
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.error(err);
@@ -43,9 +68,13 @@ routes.post(`/:question_id/answer`, (req, res) => {
     })
 })
 
+// Report or mark a question as helpful
 routes.put(`/:question_id/*`, (req, res) => {
   var path = url.parse(req.url, true).path.split('/').at(-1);
-  axios.put(endPoint + `/${req.params.question_id}/${path}`, { question_id: req.params.question_id }, { headers: { 'Authorization': `${config}` } })
+  axios
+    .put(
+      endPoint + `/${req.params.question_id}/${path}`,
+      { question_id: req.params.question_id }, auth)
     .then(response => res.status(200).send(response.statusText))
     .catch(err => {
       console.error(err);
