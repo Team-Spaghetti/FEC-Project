@@ -8,13 +8,14 @@ import { ProductProvider } from '../src/contexts/ProductContext.js'
 Enzyme.configure({ adapter: new Adapter() });
 
 
+const wrapper = mount(
+  <ProductProvider>
+    <ProductInfo />
+  </ProductProvider>
+)
+
 // describe("React testing", () => {
 //   test("test", () => {
-//     const wrapper = mount(
-//       <ProductProvider>
-//         <ProductInfo />
-//       </ProductProvider>
-//     )
 //     console.log(wrapper.debug())
 //   })
 // });
