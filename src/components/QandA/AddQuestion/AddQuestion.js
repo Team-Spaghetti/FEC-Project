@@ -5,6 +5,10 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
 
 var style = {
   borderRadius: 10,
@@ -16,9 +20,8 @@ var style = {
   flexDirection: 'column',
   p: 4,
   transform: 'translate(-50%, -50%)',
-  width: 600,
-  maxWidth: '100%',
-  height: 400,
+  width: '45%',
+  height: '55%',
   border: '2px solid #FFFFFF',
   boxShadow: 24,
   alignItems:"center",
@@ -45,30 +48,24 @@ var AddQuestion = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box component="form" sx={style}>
-            <form>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-              Ask your Question about Camo Onesie
+            Ask your Question about <em>Camo Onesie</em>
           </Typography>
-          <div><TextField fullWidth id="fullWidth" label="Your Nickname" variant="outlined" />
-            <Typography id="modal-modal-description" component="p">
-              For privacy reasons, do not use your full name or email address
-            </Typography>
+          <div><TextField fullWidth id="fullWidth" label="Your Nickname" variant="outlined" color="secondary" helperText="*For authentication purposes; you will not be emailed"/>
           </div>
           <div><TextField fullWidth
             id="fullWidth"
             label="Your Question"
             multiline
             rows={4}
-            variant="outlined"
+            variant="outlined" color="secondary"
           /></div>
-          <div><TextField fullWidth id="fullWidth" label="Your Email" variant="outlined" />
-            <Typography id="modal-modal-description" component="p">
-              For authentication reasons. You will not be emailed
-            </Typography>
+          <div>
+            <TextField fullWidth id="fullWidth" label="Your Nickname" color="secondary" variant="outlined" helperText="*For authentication purposes; you will not be emailed"/>
           </div>
-            <Stack><Button variant="contained" size="small" sx={{ bgcolor: 'purple' }}>Submit your Question</Button>
+            <Stack spacing={2}>
+            <Button variant="contained" color="secondary" size="small" sx={{ bgcolor: '#BF40BF', justifyContent: 'center' }}>Submit your Question</Button>
             </Stack>
-          </form>
           </Box>
         </Modal>
     </div>
