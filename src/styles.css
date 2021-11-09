@@ -14,8 +14,19 @@ body{
   margin: 0;
 }
 
-.product-name h2{
-  margin-bottom: 10px;
+.product-slogan-and-description {
+  width: 80%;
+}
+
+.slogan {
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 10px !important;
+}
+
+.description {
+  margin-bottom: 10px !important;
+  font-size: 12px;
 }
 
 .prices{
@@ -32,6 +43,10 @@ body{
 
 .selected-style {
   border: 2px solid purple;
+}
+
+.style-component {
+  margin-bottom: 10px;
 }
 
 .style-container {

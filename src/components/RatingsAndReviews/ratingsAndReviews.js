@@ -7,12 +7,12 @@ import ProductBreakdown from './productBreakdown.js';
 import ReviewForm from './reviewForm.js'
 import { useProduct } from '../../contexts/ProductContext.js';
 
-export default function RatingsAndReviews() {
+export default function RatingsAndReviews(props) {
   const productContext = useProduct();
   const [sort, setSort] = useState('relevant');
   const [filters, setFilters] = useState([false, false, false, false, false]);
   return (
-    <div>
+    <div onClick={props.onClick}>
       {JSON.stringify(productContext.meta)=== '{}' ? <div></div> :
       <div><RatingBreakdown sort={sort} setSort={setSort} productContext={productContext} filters={filters} setFilters={setFilters}/>
       <ProductBreakdown productContext={productContext}/></div>}
