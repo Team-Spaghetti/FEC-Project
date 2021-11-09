@@ -57,25 +57,3 @@ export default Question;
 // else render button
 
 
-
-{/* <TextField fullWidth id="fullWidth" label="Your Email" variant="outlined" aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': '*For authentication purposes; you will not be emailed',
-            }}/>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="filled">
-              <FilledInput
-                id="filled-adornment-weight"
-                value={values.weight}
-                onChange={handleChange('weight')}
-                endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-                aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': '*For authentication purposes; you will not be emailed',
-            }}/>
-              />
-              <FormHelperText id="filled-weight-helper-text">Weight</FormHelperText>
-            </FormControl>
-            <Typography id="modal-modal-description" sx={{fontSize:10, marginBottom: 0}}>
-              *For authentication purposes; you will not be emailed
-            </Typography>
-          style={{width: '100%', display:'flex', flexDirection:'column'}}*/}
