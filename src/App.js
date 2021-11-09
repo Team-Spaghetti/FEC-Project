@@ -10,8 +10,8 @@ function App() {
     <div>
     <ProductProvider>
       <Overview />
-      <RatingsAndReviews />
       <QandA />
+      <RatingsAndReviews />
     </ProductProvider>
     </div>
   )
