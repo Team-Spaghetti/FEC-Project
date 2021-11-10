@@ -11,6 +11,7 @@ import { FacebookIcon, TwitterIcon, PinterestIcon } from "react-share";
 export default function ProductInfo() {
   const { product, styleReducer, meta } = useProduct();
   const [styleValue, setStyleValue] = styleReducer;
+  console.log(product);
   return (
     <div className="product-info">
       <div>
@@ -27,6 +28,11 @@ export default function ProductInfo() {
         <div className="product-slogan-and-description">
           <p className="slogan">{product.slogan}</p>
           <p className="description">{product.description}</p>
+        </div>
+        <div>
+          <p className="features">{product.features
+            ? `${product.features[0].feature} - ${product.features[0].value} | ${product.features[1].feature} - ${product.features[1].value}`
+            : `haha`}</p>
         </div>
         <div className="prices">
           {styleValue.currentStyle && styleValue.currentStyle.sale_price ? (
@@ -56,7 +62,7 @@ export default function ProductInfo() {
             "BROS AND BRODETTES: FEAST YOUR EYES ON THIS AMAZING PRODUCT!!!"
           }
         >
-          <FacebookIcon size={24} round={true}/>
+          <FacebookIcon size={24} round={true} />
         </FacebookShareButton>
         <TwitterShareButton
           url={
@@ -66,16 +72,17 @@ export default function ProductInfo() {
           }
           title={`Hopefully, this doesn't offend you guys... `}
         >
-          <TwitterIcon size={24} round={true}/>
+          <TwitterIcon size={24} round={true} />
         </TwitterShareButton>
         <PinterestShareButton
-        url={`http://www.urban-octo-chainsaw.com`}
-        media={
-          styleValue.currentStyle
-            ? styleValue.currentStyle.photos[0].url
-            : "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
-        }>
-          <PinterestIcon size={24} round={true}/>
+          url={`http://www.urban-octo-chainsaw.com`}
+          media={
+            styleValue.currentStyle
+              ? styleValue.currentStyle.photos[0].url
+              : "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
+          }
+        >
+          <PinterestIcon size={24} round={true} />
         </PinterestShareButton>
       </div>
     </div>

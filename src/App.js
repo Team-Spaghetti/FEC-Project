@@ -19,7 +19,7 @@ function App() {
       }
     })
       .then((response) => {
-        // console.log('Sent interaction with the following data: ', element, widget, time)
+        console.log('Sent interaction with the following data: ', element, widget, time)
       })
       .catch((err) => {
         console.error("Error: ", err)
