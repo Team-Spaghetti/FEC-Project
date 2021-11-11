@@ -8,7 +8,7 @@ export default function ProductBreakdown(props) {
     <div>{characteristics.map((characteristic) => {
       return(
         <div key={characteristic}>{characteristic}
-          <Box sx={{ width: '50%', mr: 1 }}>
+          <Box sx={{ width: '80%', mr: 1 }}>
             <Slider defaultValue={props.productContext.meta.meta.characteristics[characteristic].value} min={1} max={5} disabled/>
         </Box>
       </div>

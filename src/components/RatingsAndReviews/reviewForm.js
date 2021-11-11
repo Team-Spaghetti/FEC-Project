@@ -72,7 +72,7 @@ export default function ReviewForm(props) {
   //   Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']}
   return (
     <div>
-      <button onClick={handleOpen}>Add Review</button>
+      <button className="reviewButton" onClick={handleOpen}>Add Review</button>
       <Dialog open={open} maxWidth="md" onClose={handleClose}>
         <form>
           <Grid container>

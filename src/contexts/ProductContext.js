@@ -79,7 +79,7 @@ export function ProductProvider({ children }) {
         product: product,
         styles: styles,
         styleReducer: [state, setState],
-        meta: meta
+        meta: meta,
       }}
     >
       {children}

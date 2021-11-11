@@ -4,16 +4,17 @@ import RatingsAndReviews from './components/RatingsAndReviews/ratingsAndReviews.
 import Overview from './components/overview/overview.js'
 import { ProductProvider } from './contexts/ProductContext.js';
 import QandA from './components/QandA/QandA'
+import Container from '@mui/material/Container';
 
 function App() {
   return (
-    <div>
-    <ProductProvider>
-      <Overview />
-      <RatingsAndReviews />
-      <QandA />
-    </ProductProvider>
-    </div>
+    <Container>
+      <ProductProvider>
+        <Overview />
+        <RatingsAndReviews />
+        <QandA />
+      </ProductProvider>
+    </Container>
   )
 }
 
