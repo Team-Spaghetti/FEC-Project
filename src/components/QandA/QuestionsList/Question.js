@@ -2,19 +2,71 @@
 import React, { useEffect, useState } from 'react';
 import AnswerList from './Answers/AnswerList';
 import axios from 'axios';
-// import AddAnswer from './Answers/AddAnswer';
+import Modal from '@mui/material/Modal';
+import { useForm, TemplateForm } from '../formHandlers/bluePrint';
+import Input from '../formHandlers/controls/input';
+import Typography from '@mui/material/Typography';
+import Button from '../formHandlers/controls/button';
+import Stack from '@mui/material/Stack';
+
+
+const initialValues = {
+  nickname: '',
+  answer: '',
+  email: ''
+}
 
 var Question = ({question}) => {
   var [helpful, markHelpful] = useState(0);
   useEffect(() => {}, [helpful]);
-  var [display, setDisplay] = useState(false)
-  var handleOpen = () => {
-    setDisplay(true)
-    // displays the modal
-    // sets display of modal into block
+  const [open, setOpen] = useState(false);
+
+  var handleOpen = () => setOpen(true);
+  var handleClose = () => setOpen(false);
+
+  const validate = (formValues = values) => {
+
+    const temp = { ...errors };
+
+    if ('nickname' in formValues) {
+      temp.nickname = formValues.nickname ? "" : "This is a required Field";
+    }
+    if ('answer' in formValues) {
+      temp.answer = formValues.answer ? "" : "You've not entered your answer.";
+    }
+    if ('email' in formValues) {
+      if (!formValues.email) {
+        temp.email = "This is a required Field";
+      } else {
+        temp.email = (/$^|.+@.+..+/).test(formValues.email) ? "" : "Email is not valid.";
+      }
+    }
+
+    setErrors({
+      ...temp
+    })
+
+    return Object.values(temp).every(error => error === '');
   }
-  var handleClose = () => {
-    setDisplay(false)
+
+  const {
+    values,
+    handleChange,
+    errors,
+    setErrors,
+    reset
+  } = useForm(initialValues, validate, true);
+
+  const handleSubmit = () => {
+    let noErrors = validate();
+    if (noErrors) {
+      handleClose();
+      setValues(initialValues);
+      axios
+        .post(`http://localhost:3000/qa/questions/${question.question_id}/answer`, { body: values.answer, name: values.nickname, email: values.email, photos: [] })
+        .then(response => console.log('Success'))
+        .catch(err => console.error(err))
+    }
   }
 
   var helpfulFunc = () => {
@@ -32,19 +84,76 @@ var Question = ({question}) => {
         <span className="subs"> Helpful?
           {
           helpful > 0 ?
-              <button>
-                {`Yes(${question.question_helpfulness + 1})`}
-              </button> :
-          <button className="helpful" onClick={helpfulFunc}>
-            <u>Yes</u>({question.question_helpfulness})
-          </button>
+              <Button
+                text={`Yes(${question.question_helpfulness + 1})`}
+                variant="outlined"
+                size="small"
+              /> :
+              <Button
+                text={`Yes(${question.question_helpfulness})`}
+                variant="outlined"
+                size="small"
+                onClick={helpfulFunc}
+                underline={true}
+              />
           }
           &nbsp; | &nbsp;
-          <button onClick={handleOpen} className="aaBtn"><u>Add Answer</u>
-          </button>
-          {/* <AddAnswer display={display} handleClose={handleClose} handleOpen={handleOpen}/> */}
+          <Button
+            text="Add Answer"
+            variant="outlined"
+            size="small"
+            onClick={handleOpen}
+            underline={true}
+          />
         </span>
       </div>
+      <Modal open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+        <TemplateForm>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            <em>Camo Onesie: </em>{question.question_body}
+          </Typography>
+          <Input
+            label="What's your nickname?"
+            name="nickname"
+            value={values.nickname}
+            onChange={handleChange}
+            helperText="For privacy reasons, do not use your full name or email address"
+            error={errors.nickname}
+          />
+          <Input
+            label="Your Answer..."
+            name="answer"
+            multiline
+            rows={4}
+            value={values.answer}
+            onChange={handleChange}
+            error={errors.answer}
+          />
+          <Input
+            label="What's your email?"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            helperText="For authentication purposes; you will not be emailed"
+            error={errors.email}
+          />
+          <Stack direction="row" spacing={2}>
+            <Button
+              text="Submit"
+              type="submit"
+              onClick={handleSubmit}
+            />
+            <Button
+              text="Reset"
+              variant="outlined"
+              onClick={reset}
+            />
+          </Stack>
+        </TemplateForm>
+      </Modal>
       <AnswerList answers={question.answers} />
     </div>
   )
@@ -52,30 +161,3 @@ var Question = ({question}) => {
 
 export default Question;
 
-// store state that will check to see if marked as helpful
-// if marked as helpful, render text
-// else render button
-
-
-
-{/* <TextField fullWidth id="fullWidth" label="Your Email" variant="outlined" aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': '*For authentication purposes; you will not be emailed',
-            }}/>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="filled">
-              <FilledInput
-                id="filled-adornment-weight"
-                value={values.weight}
-                onChange={handleChange('weight')}
-                endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-                aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': '*For authentication purposes; you will not be emailed',
-            }}/>
-              />
-              <FormHelperText id="filled-weight-helper-text">Weight</FormHelperText>
-            </FormControl>
-            <Typography id="modal-modal-description" sx={{fontSize:10, marginBottom: 0}}>
-              *For authentication purposes; you will not be emailed
-            </Typography>
-          style={{width: '100%', display:'flex', flexDirection:'column'}}*/}

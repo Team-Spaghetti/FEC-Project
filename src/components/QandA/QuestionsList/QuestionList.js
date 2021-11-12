@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Question from './Question';
 import MoreAnsweredQuestion from '../MoreAnsweredQuestions/MoreAnsweredQuestions';
 import Search from '../Search/Search';
+import AddQuestion from '../AddQuestion/AddQuestion';
+import Button from '../formHandlers/controls/button';
+import Stack from '@mui/material/Stack';
 
 var QuestionList = ({questions}) => {
   var [selected, chooseQuestions] = useState([]);
@@ -22,11 +25,14 @@ var QuestionList = ({questions}) => {
   useEffect(() => {chooseQuestions(questions.slice(0,2))}, [questions]);
 
   return(
-    <div className="ql">
+    <Stack direction="column" spacing={1} >
       <Search handleSearch={handleSearch} setText={setText}/>
       {selected.map(question => <Question key={question.question_id} question={question}/>)}
-      <MoreAnsweredQuestion numQuestions={questions.length} loadQuestions={loadQuestions} display={display} setDisplay={setDisplay}/>
-    </div>
+      <Stack direction="row" spacing={2}>
+        <MoreAnsweredQuestion numQuestions={questions.length} loadQuestions={loadQuestions} display={display} setDisplay={setDisplay} />
+        <AddQuestion />
+      </Stack>
+    </Stack>
   )
 }
 

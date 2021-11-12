@@ -12,7 +12,7 @@ routes.get('/', (req, res) => {
   axios
     .get(endPoint,{
       headers: { 'Authorization': `${config}` },
-      params: { product_id: req.query.product_id }
+      params: { product_id: req.query.product_id, page: 1, count: 50 }
       }
     )
     .then(response => res.status(200).send(response.data))
@@ -61,7 +61,11 @@ routes.post(`/:question_id/answer`, (req, res) => {
       params: { question_id: req.params.question_id }
       }
     )
-    .then(response => res.status(200).send(response.statusText))
+    .then(response => {
+      res.status(200).send(response.statusText)
+      console.log('server success')
+    }
+      )
     .catch(err => {
       console.error(err);
       res.status(400).end();

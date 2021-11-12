@@ -1,90 +1,141 @@
 import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Button from '../formHandlers/controls/button';
+import { useForm, TemplateForm} from '../formHandlers/bluePrint';
+import Input from '../formHandlers/controls/input';
+import axios from 'axios';
 import Stack from '@mui/material/Stack';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
+const product_id = require('../productId')
 
-var style = {
-  borderRadius: 10,
-  bgcolor: 'background.paper',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  display: 'flex',
-  flexDirection: 'column',
-  p: 4,
-  transform: 'translate(-50%, -50%)',
-  width: '45%',
-  height: '55%',
-  border: '2px solid #FFFFFF',
-  boxShadow: 24,
-  alignItems:"center",
-  '& .MuiTextField-root': { m: 1, width: '65ch' },
-  root: {
-    justifyContent: 'center'
-  }
-};
+const initialValues = {
+  nickname: '',
+  question: '',
+  email: ''
+}
 
 var AddQuestion = () => {
-  var [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
   var handleOpen = () => setOpen(true);
   var handleClose = () => setOpen(false);
 
-  var handleClick = () => {
-    // will execute logic for presenting modal form to user to fill up
+  const validate = (formValues = values) => {
+
+    const temp = {...errors};
+
+    if ('nickname' in formValues) {
+      temp.nickname = formValues.nickname ? "" : "This is a required Field";
+    }
+    if ('question' in formValues) {
+      temp.question = formValues.question ? "" : "You've not entered your question.";
+    }
+    if ('email' in formValues) {
+      if(!formValues.email) {
+        temp.email = "This is a required Field";
+      } else {
+        temp.email = (/$^|.+@.+..+/).test(formValues.email) ? "" : "Email is not valid.";
+      }
+    }
+
+    setErrors({
+      ...temp
+    })
+
+    return Object.values(temp).every(error => error === '');
   }
+
+  const {
+    values,
+    handleChange,
+    errors,
+    setErrors,
+    reset
+  } = useForm(initialValues, validate, true);
+
+  const handleSubmit = () => {
+    let noErrors = validate();
+    if(noErrors) {
+      handleClose();
+      reset();
+      axios
+      .post(`http://localhost:3000/qa/questions/${product_id}/question`, {body: values.question, name: values.nickname, email: values.email, product_id})
+      .then(response => console.log('Success'))
+      .catch(err => console.error(err))
+    }
+  }
+
   return (
     <div className="aq">
-      <button onClick={handleOpen}>Add A Question +</button>
+      <Button
+        text="Add A Question +"
+        variant="outlined"
+        onClick={handleOpen}
+      />
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
-          <Box component="form" sx={style}>
+        <TemplateForm>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Ask your Question about <em>Camo Onesie</em>
           </Typography>
-          <div><TextField fullWidth id="fullWidth" label="Your Nickname" variant="outlined" color="secondary" helperText="*For authentication purposes; you will not be emailed"/>
-          </div>
-          <div><TextField fullWidth
-            id="fullWidth"
-            label="Your Question"
+          <Input
+            label="What's your nickname?"
+            name="nickname"
+            value={values.nickname}
+            onChange={handleChange}
+            helperText="For privacy reasons, do not use your full name or email address"
+            error={errors.nickname}
+          />
+          <Input
+            label="Your Question..."
+            name="question"
             multiline
             rows={4}
-            variant="outlined" color="secondary"
-          /></div>
-          <div>
-            <TextField fullWidth id="fullWidth" label="Your Nickname" color="secondary" variant="outlined" helperText="*For authentication purposes; you will not be emailed"/>
-          </div>
-            <Stack spacing={2}>
-            <Button variant="contained" color="secondary" size="small" sx={{ bgcolor: '#BF40BF', justifyContent: 'center' }}>Submit your Question</Button>
-            </Stack>
-          </Box>
+            value={values.question}
+            onChange={handleChange}
+            error={errors.question}
+          />
+          <Input
+            label="What's your email?"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            helperText="For authentication purposes; you will not be emailed"
+            error={errors.email}
+          />
+          <Stack direction="row" spacing={2}>
+            <Button
+              text="Submit"
+              type="submit"
+              onClick={handleSubmit}
+            />
+            <Button
+              text="Reset"
+              variant="outlined"
+              onClick={reset}
+            />
+          </Stack>
+        </TemplateForm>
         </Modal>
     </div>
   )
- }
+}
 
 export default AddQuestion;
 
-// Add question on click will present a modal
-// the modal will be in the form of a form
-// this form will be hidden from view
-// then add question is clicked
-// form will be revieald
-// after form is revealed, clicking on anywhere else on the form won't make the form go away
-// clicking on the x button will make the form go away
-// clicking outside the form will make the form go away
+// start with error validation after form submission
+// then move to validation in real time
+// to validate in real time, i have to pass the validate method to on change method
+// so onchange, the validate method will evaluate the
+// value in the current input
 
-// with material ui, i can setup
-// the form in a box
-// apply the necessary styles to the box
-// get the submit button to communicate with the server
+// on submit, you'll validate the form
+// by calling the validate method
+// the validate method will take the inputs from the
+// state
+// then check to see if each one of them meets
+// the requirements
 

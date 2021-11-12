@@ -22,7 +22,7 @@ const AddAnswer = ({display, handleClose, handleOpen}) => {
                   <label for="nickname">
                     <input type="text" required="required" id='nickname' maxlength="60" placeholder='Example:jack543!'/>
                   </label>
-                  <div><em class="disclaimer">For privacy reasons, do not use your full name or email address</em></div>
+                  <div><em class="disclaimer">For privacy reasons; do not use your full name or email address</em></div>
                 </div>
                 <div>
                   <label for="email">
@@ -65,3 +65,7 @@ export default AddAnswer;
 // then include submit functionality
 // if form validations not met
 // keep form on display with validation inputs highlighted
+
+// style modal for increasing and decreasing
+// handle how questions will be added to feed
+// look into require and import documentation

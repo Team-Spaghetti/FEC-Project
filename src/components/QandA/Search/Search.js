@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 
 var Search = ({handleSearch, setText}) => {
 
@@ -13,11 +16,16 @@ var Search = ({handleSearch, setText}) => {
     handleSearch();
   }
   return (
-    <div className="sa">
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'/>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <TextField
+        variant="outlined"
+        label='HAVE A QUESTION? SEARCH FOR ANSWERS...'
+        onChange={handleChange}
+        color="secondary"
+        fullWidth
+        endAdornment={<SearchIcon fontSize='small' />}
+      />
+    </form >
   )
 }
 

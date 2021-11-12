@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Button from '../../formHandlers/controls/button';
 
 // convert date to right format
 // make answer_name display seller if seller
@@ -41,25 +42,39 @@ var Answer = ({answer}) => {
         Helpful?
         {
           helpful > 0 ?
-            <button>
-              {`Yes(${answer.helpfulness + 1})`}
-            </button> :
-            <button className="helpful" onClick={helpfulFunc}>
-              <u>Yes</u>({answer.helpfulness})
-            </button>
+            <Button
+              text={`Yes(${answer.helpfulness + 1})`}
+              variant="outlined"
+              size="small"
+            /> :
+            <Button
+              text={`Yes(${answer.helpfulness})`}
+              variant="outlined"
+              size="small"
+              onClick={helpfulFunc}
+              underline={true}
+            />
         }
         &nbsp; | &nbsp;
         {
           reported > 0 ?
-            <button>Reported</button> :
-            <button className="reportA" onClick={reportedFunc}><u>Report</u>
-            </button>
+            <Button
+              text="Reported"
+              variant="outlined"
+              size="small"
+            /> :
+            <Button
+              text="Report"
+              variant="outlined"
+              onClick={reportedFunc}
+              size="small"
+              underline={true}
+            />
         }
       </div>
     </div>
   )
 }
-
 
 export default Answer;
 
