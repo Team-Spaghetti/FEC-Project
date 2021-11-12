@@ -66,6 +66,11 @@ export default AddAnswer;
 // if form validations not met
 // keep form on display with validation inputs highlighted
 
+// make search handle all cases--complete
+// add scroll bar activation--complete
+// style question components-done
 // style modal for increasing and decreasing
 // handle how questions will be added to feed
+// dangerous html
+// style buttons and answer date font sizes
 // look into require and import documentation

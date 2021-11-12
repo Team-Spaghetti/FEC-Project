@@ -8,7 +8,8 @@ import Input from '../formHandlers/controls/input';
 import Typography from '@mui/material/Typography';
 import Button from '../formHandlers/controls/button';
 import Stack from '@mui/material/Stack';
-
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 const initialValues = {
   nickname: '',
@@ -78,10 +79,11 @@ var Question = ({question}) => {
   }
 
   return (
-    <div className="q" >
-      <div className="qPortion">
-        <span className="actualQ"><b> Q: {question.question_body} </b></span>
-        <span className="subs"> Helpful?
+    <Box width='100%'>
+      <Grid container >
+        <Grid item><b> Q: {question.question_body} </b></Grid>
+        <Grid item md></Grid>
+        <Grid item > Helpful?
           {
           helpful > 0 ?
               <Button
@@ -105,8 +107,8 @@ var Question = ({question}) => {
             onClick={handleOpen}
             underline={true}
           />
-        </span>
-      </div>
+        </Grid>
+      </Grid>
       <Modal open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -155,7 +157,7 @@ var Question = ({question}) => {
         </TemplateForm>
       </Modal>
       <AnswerList answers={question.answers} />
-    </div>
+    </Box>
   )
 }
 

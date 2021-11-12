@@ -42,7 +42,7 @@ var AddQuestion = () => {
       ...temp
     })
 
-    return Object.values(temp).every(error => error === '');
+    if (formValues === values) return Object.values(temp).every(error => error === '');
   }
 
   const {

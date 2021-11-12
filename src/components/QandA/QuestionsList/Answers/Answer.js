@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../../formHandlers/controls/button';
+import Box from '@mui/material/Box';
 
 // convert date to right format
 // make answer_name display seller if seller
@@ -27,11 +28,11 @@ var Answer = ({answer}) => {
   }
 
   return(
-    <div className="a">
-      <div className="aPortion">
+    <Box width='100%'>
+      <Box width='100%'>
         <b>A: </b>{answer.body}
-      </div>
-      <div className="subs">
+      </Box>
+      <Box>
         by {`${answer.answerer_name}, ${new Date(answer.date).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -71,8 +72,8 @@ var Answer = ({answer}) => {
               underline={true}
             />
         }
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 
@@ -85,3 +86,5 @@ export default Answer;
 
 // checking if seller is author
 // can't get seller info from product
+
+

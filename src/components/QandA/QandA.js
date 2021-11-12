@@ -12,9 +12,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 
 const styles = {
-  // display: 'flex',
-  // flexDirection: 'column',
-  // position: 'absolute',
   bgcolor: 'background.paper',
   top: '50%',
   left: '50%',
@@ -42,8 +39,8 @@ var QandA = () => {
 
   return(
     <Grid container>
-      <Grid item xs={3}></Grid>
-      <Grid item xs={6}>
+      <Grid item xs={2}></Grid>
+      <Grid item xs={8}>
         <Stack direction="column" spacing={1} >
           <Typography
             variant="h6"
@@ -53,7 +50,7 @@ var QandA = () => {
           <CssBaseline />
         </Stack>
       </Grid>
-      <Grid item xs={3}></Grid>
+      <Grid item xs={2}></Grid>
     </Grid>
   )
 }
