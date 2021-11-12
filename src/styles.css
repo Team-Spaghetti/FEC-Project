@@ -209,3 +209,8 @@ body{
   *background-color: green !important;
   background-color: grey;
 }
+
+.charDescriptions {
+  font-size:12px;
+}
+
