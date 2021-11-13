@@ -45,8 +45,8 @@ export function ProductProvider({ children }) {
           })
           .catch((err) => {
             console.error(err);
-          });
-      })
+          }
+      )})
       .catch((err) => {
         console.error(err);
       });
@@ -87,7 +87,7 @@ export function ProductProvider({ children }) {
         product: product,
         styles: styles,
         styleReducer: [state, setState],
-        meta: meta
+        meta: meta,
       }}
     >
       {children}

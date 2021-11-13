@@ -92,3 +92,125 @@ body{
     width: 225px;
   }
 }
+
+.sort {
+  font-size: 18px;
+}
+
+.sort p{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.sort select {
+  padding: 6px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 0 10px rgba(105, 1, 202, 0.2);
+  margin-top: 10px;
+}
+
+.timestamp {
+  font-size: 12px;
+  margin: 0 0 0 0
+}
+
+.reviewSummary {
+  font-weight: bold
+}
+
+.reviewBody {
+  font-size: 14px
+}
+
+.helpful {
+  font-size: 12px;
+}
+
+.helpfulQuestion {
+  margin-right: 5px;
+}
+
+.reviewBodyButton {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 12px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.reviewButton {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.reported {
+  font-size:18px;
+  font-weight:bold;
+  color:red;
+}
+
+.recIcon {
+  color:rgba(105, 1, 202);
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.averageRating {
+  font-size:48px;
+  margin: 0 0 0 0;
+  color: rgb(41, 6, 73);
+}
+
+.ratingsHeader {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.filters {
+  font-size:12px;
+  margin-top:0.5;
+}
+
+.filterText {
+  font-size:12px
+}
+
+.removeFilter {
+  padding: 3px;
+  width: 80%;
+  border: none;
+  font-size: 12px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.3);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.linProg {
+  *background-color: green !important;
+  background-color: grey;
+}
+
+.charDescriptions {
+  font-size:12px;
+}
+
