@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Button from '../../formHandlers/controls/button';
+import Box from '@mui/material/Box';
 
 // convert date to right format
 // make answer_name display seller if seller
@@ -26,11 +28,11 @@ var Answer = ({answer}) => {
   }
 
   return(
-    <div className="a">
-      <div className="aPortion">
+    <Box width='100%'>
+      <Box width='100%'>
         <b>A: </b>{answer.body}
-      </div>
-      <div className="subs">
+      </Box>
+      <Box>
         by {`${answer.answerer_name}, ${new Date(answer.date).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -41,25 +43,39 @@ var Answer = ({answer}) => {
         Helpful?
         {
           helpful > 0 ?
-            <button>
-              {`Yes(${answer.helpfulness + 1})`}
-            </button> :
-            <button className="helpful" onClick={helpfulFunc}>
-              <u>Yes</u>({answer.helpfulness})
-            </button>
+            <Button
+              text={`Yes(${answer.helpfulness + 1})`}
+              variant="outlined"
+              size="small"
+            /> :
+            <Button
+              text={`Yes(${answer.helpfulness})`}
+              variant="outlined"
+              size="small"
+              onClick={helpfulFunc}
+              underline={true}
+            />
         }
         &nbsp; | &nbsp;
         {
           reported > 0 ?
-            <button>Reported</button> :
-            <button className="reportA" onClick={reportedFunc}><u>Report</u>
-            </button>
+            <Button
+              text="Reported"
+              variant="outlined"
+              size="small"
+            /> :
+            <Button
+              text="Report"
+              variant="outlined"
+              onClick={reportedFunc}
+              size="small"
+              underline={true}
+            />
         }
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
-
 
 export default Answer;
 
@@ -70,3 +86,5 @@ export default Answer;
 
 // checking if seller is author
 // can't get seller info from product
+
+

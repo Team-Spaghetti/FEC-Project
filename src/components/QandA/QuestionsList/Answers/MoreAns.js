@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '../../formHandlers/controls/button';
 
 var MoreAns = ({ numAns, loadAns }) => {
   var [display, setDisplay] = useState('LOAD MORE ANSWERS');
@@ -12,9 +13,12 @@ var MoreAns = ({ numAns, loadAns }) => {
   return (
     <div className="maa">
       {numAns > 2 ?
-        <button onClick={handleClick}>
-          {display}
-        </button> : ''}
+        <Button
+          text={display}
+          variant="outlined"
+          onClick={handleClick}
+          size="small"
+        /> : ''}
     </div>
   )
 }

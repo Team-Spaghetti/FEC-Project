@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Answer from './Answer';
 import MoreAns from './MoreAns';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 
 var AnswerList = ({ answers }) => {
   var keys = Object
@@ -24,8 +26,17 @@ var AnswerList = ({ answers }) => {
   }else {
   return (
     <div className="al">
-      {ansIds.map(id =>
-        <Answer answer={answers[id]} key={id} />)}
+      <List
+        sx={{
+          width: '100%',
+          bgcolor: 'background.paper',
+          overflow: 'auto',
+          maxHeight: 200,
+        }}>
+        {
+          ansIds.map(id => <ListItem key={id}><Answer answer={answers[id]} /></ListItem>)
+        }
+      </List>
       {numAns > 2 ?
       <MoreAns numAns={numAns} loadAns={loadAns} /> : ''}
     </div>
