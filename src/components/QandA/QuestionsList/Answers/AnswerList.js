@@ -34,7 +34,7 @@ var AnswerList = ({ answers }) => {
           maxHeight: 200,
         }}>
         {
-          ansIds.map(id => <ListItem><Answer answer={answers[id]} key={id} /></ListItem>)
+          ansIds.map(id => <ListItem key={id}><Answer answer={answers[id]} /></ListItem>)
         }
       </List>
       {numAns > 2 ?

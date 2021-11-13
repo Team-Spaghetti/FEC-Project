@@ -1,18 +1,24 @@
 import React from 'react';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+import Grid from '@mui/material/Grid'
 
 export default function Sort(props) {
   const handleChange = (event) => {
     props.setSort(event.target.value);
   }
   return (
-    <div>{props.productContext.meta.totalRatings} reviews, sorted by
-      <Select value={props.sort} onChange={handleChange}>
-        <MenuItem value='relevant'>relevant</MenuItem>
-        <MenuItem value='newest'>newest</MenuItem>
-        <MenuItem value='helpful'>helpful</MenuItem>
-      </Select>
+    <div className="sort">
+      <Grid container>
+        <Grid item xs={3}>
+          <p>{props.productContext.meta.totalRatings} reviews, sorted by</p>
+        </Grid>
+        <Grid item xs={9}>
+          <select value={props.sort} onChange={handleChange}>
+            <option>relevant</option>
+            <option>newest</option>
+            <option>helpful</option>
+          </select>
+        </Grid>
+      </Grid>
     </div>
   )
 }
