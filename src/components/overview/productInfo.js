@@ -20,7 +20,7 @@ export default function ProductInfo() {
           precision={0.25}
           sx={{ color: "purple" }}
           readOnly
-        />
+        /><a href="#reviews" className="see-reviews">See reviews</a>
       </div>
       <div className="product-name">
         <p>{product.category}</p>
@@ -67,7 +67,7 @@ export default function ProductInfo() {
         <TwitterShareButton
           url={
             styleValue.currentStyle
-              ? `http://www.urban-octo-chainsaw.com`
+              ? styleValue.currentStyle.photos[0].url
               : "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
           }
           title={`Hopefully, this doesn't offend you guys... `}
