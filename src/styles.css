@@ -1,0 +1,340 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+h1 {
+  color: white;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  /* background-image: linear-gradient(to bottom right, rgb(51, 153, 51), rgb(51, 153, 102)); */
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.title-header h2{
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding-left: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Yuji Boku', serif;
+  color: purple;
+}
+
+.title-header {
+  background-color: white;
+}
+
+/* for the modal, it's display is controlled in the components. the modal is the dark around the display text, set position to fixed, that centers the modal, then set the z index to one. the z index is how close the modal is to the observer. we'll set it to 1 in this case, we also want to set it to left 0, top 0, we want it to take up the whole window so we'll set height to 100% and width 100% the overflow auto will enable the scrollbar if needed if we set it to auto we wanna set the background to black but transparent so the rest of the page can be seen when the modal is popped up*/
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0,0.5);
+}
+
+/* for modal content, we want the, this is hte modal box, we'll set the background color to white, we'll set the margin to 20% since we want it close to the top of the window, and then auto for left and right since we want ti to be in the middle. for width, we can set it to 70% of the screen. the padding will put the inner contents padded away in the middle*/
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(70, 54, 54, 0.17);
+  border-radius: 7px;
+}
+
+#closeBtn {
+  color:black;
+  float: right;
+  font-size:30px;
+  margin: auto;
+}
+
+#closeBtn:hover, .closeBtn:focus{
+  color:coral;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin-top: 15px;
+}
+
+.app{
+  display: flex;
+}
+
+marker {
+  background-color: yellow;
+}
+
+.see-reviews {
+  position: relative;
+  top: -5px;
+  left: 3px;
+}
+
+.see-reviews::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease
+}
+
+.see-reviews:link {
+  text-decoration: none;
+  color: purple;
+}
+
+.see-reviews:hover::before {
+  transform: scaleX(1);
+}
+
+.see-reviews:visited {
+  color: purple;
+}
+
+.product-name p, h2{
+  margin: 0;
+}
+
+.product-slogan-and-description {
+  width: 80%;
+}
+
+.slogan {
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 10px !important;
+}
+
+.description {
+  margin-bottom: 10px !important;
+  font-size: 12px;
+}
+
+.features {
+  font-size: 12px;
+}
+
+.prices{
+  height: 45px;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+.sale-price {
+  color: red;
+}
+
+.selected-style {
+  border: 2px solid purple;
+}
+
+.style-component {
+  margin-bottom: 10px;
+}
+
+.style-container {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.style-thumbnails {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 25%;
+  padding: 5px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.cart-form select {
+  padding: 12px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  font-size: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.cart-form select option {
+  padding: 30px;
+}
+
+.add-to-cart-button {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+}
+
+@media only screen and (max-width: 900px) {
+  .cart-form {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1215px){
+  .cart-form {
+    width: 225px;
+  }
+}
+
+.sort {
+  font-size: 18px;
+}
+
+.sort p{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.sort select {
+  padding: 6px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 0 10px rgba(105, 1, 202, 0.2);
+  margin-top: 10px;
+}
+
+.timestamp {
+  font-size: 12px;
+  margin: 0 0 0 0
+}
+
+.reviewSummary {
+  font-weight: bold
+}
+
+.reviewBody {
+  font-size: 14px
+}
+
+.helpful {
+  font-size: 12px;
+}
+
+.helpfulQuestion {
+  margin-right: 5px;
+}
+
+.reviewBodyButton {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 12px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.reviewButton {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.reported {
+  font-size:18px;
+  font-weight:bold;
+  color:red;
+}
+
+.recIcon {
+  color:rgba(105, 1, 202);
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.averageRating {
+  font-size:48px;
+  margin: 0 0 0 0;
+  color: rgb(41, 6, 73);
+}
+
+.ratingsHeader {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.filters {
+  font-size:12px;
+  margin-top:0.5;
+}
+
+.filterText {
+  font-size:12px
+}
+
+.removeFilter {
+  padding: 3px;
+  width: 80%;
+  border: none;
+  font-size: 12px;
+  box-shadow: 0 5px 25px rgba(105, 1, 202, 0.3);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align:center;
+}
+
+.linProg {
+  *background-color: green !important;
+  background-color: grey;
+}
+
+.charDescriptions {
+  font-size:12px;
+}
+
+hr {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: purple;
+}
