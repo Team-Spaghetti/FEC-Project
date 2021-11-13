@@ -8,14 +8,11 @@ import { ProductProvider } from '../src/contexts/ProductContext.js'
 Enzyme.configure({ adapter: new Adapter() });
 
 
-const wrapper = mount(
-  <ProductProvider>
-    <ProductInfo />
-  </ProductProvider>
-)
+// test('just a normal test', () => {
+//   const component = renderer.create(
+//     <ProductInfo ></ProductInfo>
+//   );
 
-// describe("React testing", () => {
-//   test("test", () => {
-//     console.log(wrapper.debug())
-//   })
-// });
+//   let tree = component.toJSON();
+//   expect(tree).toMatchSnapshot();
+// })
