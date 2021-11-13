@@ -23,7 +23,7 @@ const styles = {
   height: '55%',
 }
 
-var QandA = () => {
+var QandA = (props) => {
 
   var id = useProduct().product;
   var [questions, setQuestions] = useState([]);
