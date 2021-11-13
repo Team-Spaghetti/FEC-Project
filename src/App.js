@@ -5,6 +5,8 @@ import Overview from './components/overview/overview.js'
 import { ProductProvider } from './contexts/ProductContext.js';
 import QandA from './components/QandA/QandA'
 import axios from 'axios';
+import Container from '@mui/material/Container';
+
 
 function App() {
 
@@ -48,13 +50,13 @@ function App() {
   }
 
   return (
-    <div>
-    <ProductProvider>
-      <Overview onClick={onClickOverview}/>
-      <RatingsAndReviews onClick={onClickRatings} />
-      <QandA onClick={onClickQuestions} />
-    </ProductProvider>
-    </div>
+    <Container>
+      <ProductProvider>
+        <Overview onClick={onClickOverview}/>
+        <RatingsAndReviews onClick={onClickRatings} />
+        <QandA onClick={onClickQuestions} />
+     </ProductProvider>
+    </Container>
   )
 }
 
