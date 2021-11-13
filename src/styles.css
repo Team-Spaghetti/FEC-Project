@@ -74,6 +74,10 @@ body{
   display: flex;
 }
 
+marker {
+  background-color: yellow;
+}
+
 .see-reviews {
   position: relative;
   top: -5px;

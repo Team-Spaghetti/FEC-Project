@@ -62,7 +62,7 @@ var Question = ({question}) => {
     let noErrors = validate();
     if (noErrors) {
       handleClose();
-      setValues(initialValues);
+      reset();
       axios
         .post(`http://localhost:3000/qa/questions/${question.question_id}/answer`, { body: values.answer, name: values.nickname, email: values.email, photos: [] })
         .then(response => console.log('Success'))
@@ -81,7 +81,7 @@ var Question = ({question}) => {
   return (
     <Box width='100%'>
       <Grid container >
-        <Grid item><b> Q: {question.question_body} </b></Grid>
+        <Grid item><b dangerouslySetInnerHTML={{ __html: `Q: ${question.question_body} `}}></b></Grid>
         <Grid item md></Grid>
         <Grid item > Helpful?
           {
