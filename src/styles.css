@@ -2,16 +2,29 @@
 
 h1 {
   color: white;
-  background-color: black;
 }
 
 body{
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  /* background-image: linear-gradient(to bottom right, rgb(51, 153, 51), rgb(51, 153, 102)); */
 }
 
 button:hover{
   cursor: pointer;
+}
+
+.title-header h2{
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding-left: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Yuji Boku', serif;
+  color: purple;
+}
+
+.title-header {
+  background-color: white;
 }
 
 /* for the modal, it's display is controlled in the components. the modal is the dark around the display text, set position to fixed, that centers the modal, then set the z index to one. the z index is how close the modal is to the observer. we'll set it to 1 in this case, we also want to set it to left 0, top 0, we want it to take up the whole window so we'll set height to 100% and width 100% the overflow auto will enable the scrollbar if needed if we set it to auto we wanna set the background to black but transparent so the rest of the page can be seen when the modal is popped up*/
@@ -316,3 +329,8 @@ body{
   font-size:12px;
 }
 
+hr {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: purple;
+}
