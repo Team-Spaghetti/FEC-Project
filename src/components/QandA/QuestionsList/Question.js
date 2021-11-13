@@ -22,7 +22,10 @@ var Question = ({question}) => {
   useEffect(() => {}, [helpful]);
   const [open, setOpen] = useState(false);
 
-  var handleOpen = () => setOpen(true);
+  var handleOpen = () => {
+    reset();
+    setOpen(true);
+  };
   var handleClose = () => setOpen(false);
 
   const validate = (formValues = values) => {
