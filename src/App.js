@@ -51,8 +51,8 @@ function App() {
     <div>
     <ProductProvider>
       <Overview onClick={onClickOverview}/>
-      <RatingsAndReviews onClick={onClickRatings} />
       <QandA onClick={onClickQuestions} />
+      <RatingsAndReviews onClick={onClickRatings} />
     </ProductProvider>
     </div>
   )

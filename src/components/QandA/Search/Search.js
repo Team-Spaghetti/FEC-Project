@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 var Search = ({handleSearch, setText}) => {
 
@@ -9,15 +12,27 @@ var Search = ({handleSearch, setText}) => {
     setText('');
   }
   var handleChange = e => {
-    setText(e.target.value);
-    handleSearch();
+    let freshText = e.target.value
+    setText(freshText);
+    handleSearch(freshText);
   }
   return (
-    <div className="sa">
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'/>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <TextField
+        variant="outlined"
+        label='HAVE A QUESTION? SEARCH FOR ANSWERS...'
+        onChange={handleChange}
+        color="secondary"
+        fullWidth
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+    </form >
   )
 }
 
