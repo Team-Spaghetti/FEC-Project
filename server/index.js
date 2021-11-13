@@ -8,7 +8,6 @@ var answers = require('./QuestionsAndAnswers/answers');
 var reviews = require('./reviews/reviews.js');
 var products = require('./products&cart/products.js');
 var cart = require('./products&cart/cart.js');
-var interactions = require ('./interactions/interactions.js');
 
 app.use(express.json());
 app.use(cors());
@@ -18,7 +17,6 @@ app.use('/qa/answers', answers);
 app.use('/reviews', reviews);
 app.use('/products', products);
 app.use('/cart', cart);
-app.use('/interactions', interactions);
 
 var port = 3000;
 

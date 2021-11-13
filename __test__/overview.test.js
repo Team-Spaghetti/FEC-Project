@@ -1,19 +1,21 @@
 import React from 'react';
+import Enzyme from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import ProductInfo from '../src/components/overview/productInfo.js';
-import renderer from 'react-test-renderer';
-// import Enzyme from 'enzyme';
-// import { shallow, mount } from 'enzyme';
-// import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-// import { ProductProvider } from '../src/contexts/ProductContext.js'
+import { ProductProvider } from '../src/contexts/ProductContext.js'
 
-// Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 
-test('just a normal test', () => {
-  const component = renderer.create(
-    <ProductInfo ></ProductInfo>
-  );
+const wrapper = mount(
+  <ProductProvider>
+    <ProductInfo />
+  </ProductProvider>
+)
 
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-})
+// describe("React testing", () => {
+//   test("test", () => {
+//     console.log(wrapper.debug())
+//   })
+// });

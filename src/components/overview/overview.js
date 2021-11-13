@@ -6,15 +6,15 @@ import Cart from './cart.js'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 
-export default function Overview(props) {
+export default function Overview() {
   return(
-    <div onClick={props.onClick}>
+    <div>
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} md={9}>
             <Images />
           </Grid>
-          <Grid item xs={12} md={3} container spacing={0} direction="column">
+          <Grid item xs={12} md={3} container spacing={2} direction="column">
             <Grid item xs={1}>
               <ProductInfo />
             </Grid>
