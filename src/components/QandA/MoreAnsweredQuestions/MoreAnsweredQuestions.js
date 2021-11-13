@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '../formHandlers/controls/button';
 
 var MoreAnsweredQuestions = ({ numQuestions, loadQuestions, display, setDisplay}) => {
 
@@ -12,9 +13,11 @@ var MoreAnsweredQuestions = ({ numQuestions, loadQuestions, display, setDisplay}
   return (
     <div className="ma">
       {numQuestions > 2 ?
-      <button onClick={handleClick}>
-        { display }
-      </button> : ''}
+        <Button
+          text={display}
+          variant="outlined"
+          onClick={handleClick}
+        /> : ''}
     </div>
   )
  }

@@ -1,0 +1,1 @@
+module.exports = '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';

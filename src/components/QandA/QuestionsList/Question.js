@@ -2,17 +2,73 @@
 import React, { useEffect, useState } from 'react';
 import AnswerList from './Answers/AnswerList';
 import axios from 'axios';
-// will take a question object then populate part of the componet with question info and pass answers part to answers component
-// will pass answer portion of question to answer list
-// answer list will comprise answers and depending on whether more answers are clicked will display answers accordingly
-// add answer will be component that will present form modal for new answer input
-// load answer will be a button that'll show load more answers
-// must figure out logic to use for choosing when to show load more answers, can apply this logic to load more questions button
-// helpfulness will be a button that'll send a put request, on click, convert from button to text
-// same with report
+import Modal from '@mui/material/Modal';
+import { useForm, TemplateForm } from '../formHandlers/bluePrint';
+import Input from '../formHandlers/controls/input';
+import Typography from '@mui/material/Typography';
+import Button from '../formHandlers/controls/button';
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+
+const initialValues = {
+  nickname: '',
+  answer: '',
+  email: ''
+}
+
 var Question = ({question}) => {
   var [helpful, markHelpful] = useState(0);
-  useEffect(() => {}, [helpful])
+  useEffect(() => {}, [helpful]);
+  const [open, setOpen] = useState(false);
+
+  var handleOpen = () => setOpen(true);
+  var handleClose = () => setOpen(false);
+
+  const validate = (formValues = values) => {
+
+    const temp = { ...errors };
+
+    if ('nickname' in formValues) {
+      temp.nickname = formValues.nickname ? "" : "This is a required Field";
+    }
+    if ('answer' in formValues) {
+      temp.answer = formValues.answer ? "" : "You've not entered your answer.";
+    }
+    if ('email' in formValues) {
+      if (!formValues.email) {
+        temp.email = "This is a required Field";
+      } else {
+        temp.email = (/$^|.+@.+..+/).test(formValues.email) ? "" : "Email is not valid.";
+      }
+    }
+
+    setErrors({
+      ...temp
+    })
+
+    return Object.values(temp).every(error => error === '');
+  }
+
+  const {
+    values,
+    handleChange,
+    errors,
+    setErrors,
+    reset
+  } = useForm(initialValues, validate, true);
+
+  const handleSubmit = () => {
+    let noErrors = validate();
+    if (noErrors) {
+      handleClose();
+      setValues(initialValues);
+      axios
+        .post(`http://localhost:3000/qa/questions/${question.question_id}/answer`, { body: values.answer, name: values.nickname, email: values.email, photos: [] })
+        .then(response => console.log('Success'))
+        .catch(err => console.error(err))
+    }
+  }
 
   var helpfulFunc = () => {
     markHelpful(1);
@@ -23,34 +79,87 @@ var Question = ({question}) => {
   }
 
   return (
-    <div className="q" >
-      <div className="qPortion">
-        <span className="actualQ"><b> Q: {question.question_body} </b></span>
-        <span className="subs"> Helpful?
+    <Box width='100%'>
+      <Grid container >
+        <Grid item><b> Q: {question.question_body} </b></Grid>
+        <Grid item md></Grid>
+        <Grid item > Helpful?
           {
           helpful > 0 ?
-              <button>
-                {`Yes(${question.question_helpfulness + 1})`}
-              </button> :
-          <button className="helpful" onClick={helpfulFunc}>
-            <u>Yes</u>({question.question_helpfulness})
-          </button>
+              <Button
+                text={`Yes(${question.question_helpfulness + 1})`}
+                variant="outlined"
+                size="small"
+              /> :
+              <Button
+                text={`Yes(${question.question_helpfulness})`}
+                variant="outlined"
+                size="small"
+                onClick={helpfulFunc}
+                underline={true}
+              />
           }
           &nbsp; | &nbsp;
-          <button className="addA"><u>Add Answer</u></button>
-        </span>
-      </div>
+          <Button
+            text="Add Answer"
+            variant="outlined"
+            size="small"
+            onClick={handleOpen}
+            underline={true}
+          />
+        </Grid>
+      </Grid>
+      <Modal open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+        <TemplateForm>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            <em>Camo Onesie: </em>{question.question_body}
+          </Typography>
+          <Input
+            label="What's your nickname?"
+            name="nickname"
+            value={values.nickname}
+            onChange={handleChange}
+            helperText="For privacy reasons, do not use your full name or email address"
+            error={errors.nickname}
+          />
+          <Input
+            label="Your Answer..."
+            name="answer"
+            multiline
+            rows={4}
+            value={values.answer}
+            onChange={handleChange}
+            error={errors.answer}
+          />
+          <Input
+            label="What's your email?"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            helperText="For authentication purposes; you will not be emailed"
+            error={errors.email}
+          />
+          <Stack direction="row" spacing={2}>
+            <Button
+              text="Submit"
+              type="submit"
+              onClick={handleSubmit}
+            />
+            <Button
+              text="Reset"
+              variant="outlined"
+              onClick={reset}
+            />
+          </Stack>
+        </TemplateForm>
+      </Modal>
       <AnswerList answers={question.answers} />
-    </div>
+    </Box>
   )
 }
 
 export default Question;
-
-
-
-// store state that will check to see if marked as helpful
-// if marked as helpful, render text
-// else render button
-
 

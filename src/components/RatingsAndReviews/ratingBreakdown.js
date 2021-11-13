@@ -35,7 +35,6 @@ export default function RatingBreakdown(props) {
   };
   return (
     <div>
-      <a name="reviews"></a>
       <h2>Rating Breakdown</h2>
       {(props.filters.indexOf(true) !== -1) ? <div>Showing{
         props.filters.map((filter, index) => {
