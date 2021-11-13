@@ -9,11 +9,11 @@ import renderer from 'react-test-renderer';
 // Enzyme.configure({ adapter: new Adapter() });
 
 
-test('just a normal test', () => {
-  const component = renderer.create(
-    <ProductInfo ></ProductInfo>
-  );
+// test('just a normal test', () => {
+//   const component = renderer.create(
+//     <ProductInfo ></ProductInfo>
+//   );
 
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-})
+//   let tree = component.toJSON();
+//   expect(tree).toMatchSnapshot();
+// })
