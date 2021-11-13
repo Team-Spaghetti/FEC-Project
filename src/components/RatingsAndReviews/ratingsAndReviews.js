@@ -8,7 +8,7 @@ import ReviewForm from './reviewForm.js'
 import { useProduct } from '../../contexts/ProductContext.js';
 import Grid from '@mui/material/Grid';
 
-export default function RatingsAndReviews() {
+export default function RatingsAndReviews(props) {
   const productContext = useProduct();
   const [sort, setSort] = useState('relevant');
   const [filters, setFilters] = useState([false, false, false, false, false]);

@@ -32,7 +32,7 @@ import MoreAnsweredQuestion from './MoreAnsweredQuestions/MoreAnsweredQuestions'
 // problem to come back to
 // it appears axios request not made on load, but after page refreses
 
-var QandA = () => {
+var QandA = (props) => {
 
   var id = useProduct().product;
   var [questions, setQuestions] = useState([]);
@@ -47,7 +47,7 @@ var QandA = () => {
   }, [])
 
   return(
-    <div className="qa">
+    <div className="qa" onClick={props.onClick}>
       <div className="QandATitle">QUESTIONS & ANSWERS</div>
       <QuestionList questions={questions} />
       <AddQuestion />

@@ -60,6 +60,7 @@ export default function RatingBreakdown(props) {
   };
   return (
     <div>
+      <a name="reviews"></a>
       <h4 className="ratingsHeader">Ratings and Reviews </h4>
       <Grid container>
         <Grid item xs={3}>
