@@ -2,6 +2,20 @@ import React, { useEffect, useState } from 'react';
 import Question from './Question';
 import MoreAnsweredQuestion from '../MoreAnsweredQuestions/MoreAnsweredQuestions';
 import Search from '../Search/Search';
+import AddQuestion from '../AddQuestion/AddQuestion';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Stack from '@mui/material/Stack';
+
+const styles = {
+  '& .MuiList-root, & .MuiListItem-root': {
+    paddingTop: '2px',
+    paddingBottom: '2px',
+    width: '100%',
+    paddingRight: '2px',
+    paddingLeft: '2px'
+  },
+}
 
 var QuestionList = ({questions}) => {
   var [selected, chooseQuestions] = useState([]);
@@ -9,24 +23,40 @@ var QuestionList = ({questions}) => {
   var [display, setDisplay] = useState('More Answered Questions')
 
   var loadQuestions = (display) => {
-    display === 'More Answered Questions' ? chooseQuestions(questions) : chooseQuestions(questions.slice(0, 2));
+    display === 'More Answered Questions' ? chooseQuestions(questions) : chooseQuestions(questions.slice(0, 4));
   }
 
-  var handleSearch = () => {
+  var handleSearch = freshText => {
     if (text.length < 3) {
-      chooseQuestions(questions.slice(0, 2));
+      chooseQuestions(questions.slice(0, 4));
       setDisplay('More Answered Questions')
-     } else chooseQuestions(questions.filter(question => question.question_body.includes(text)));
+     } else chooseQuestions(questions.filter(question => {
+       let questionBody = question.question_body.toLowerCase();
+       let newText = freshText.toLowerCase();
+       return questionBody.includes(newText);
+      }));
   };
 
-  useEffect(() => {chooseQuestions(questions.slice(0,2))}, [questions]);
+  useEffect(() => {chooseQuestions(questions.slice(0,4))}, [questions]);
 
   return(
-    <div className="ql">
+    <Stack direction="column" spacing={1} sx={styles}>
       <Search handleSearch={handleSearch} setText={setText}/>
-      {selected.map(question => <Question key={question.question_id} question={question}/>)}
-      <MoreAnsweredQuestion numQuestions={questions.length} loadQuestions={loadQuestions} display={display} setDisplay={setDisplay}/>
-    </div>
+      <List
+        sx={{
+          width: '100%',
+          bgcolor: 'background.paper',
+          overflow: 'auto',
+          maxHeight: 850,
+        }}
+      >
+        {selected.map(question => <ListItem key={question.question_id}><Question question={question} /></ListItem>)}
+      </List>
+      <Stack direction="row" spacing={2}>
+        <MoreAnsweredQuestion numQuestions={questions.length} loadQuestions={loadQuestions} display={display} setDisplay={setDisplay} />
+        <AddQuestion />
+      </Stack>
+    </Stack>
   )
 }
 
