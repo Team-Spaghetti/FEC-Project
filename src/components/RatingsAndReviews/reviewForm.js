@@ -72,49 +72,33 @@ export default function ReviewForm(props) {
   //   Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']}
   return (
     <div>
-      <button className="reviewButton" onClick={handleOpen}>Add Review</button>
+      <button onClick={handleOpen}>Add Review</button>
       <Dialog open={open} maxWidth="md" onClose={handleClose}>
         <form>
           <Grid container>
-            <Grid item xs={4}/>
-            <Grid item xs ={4}>
-                <Rating sx={{color:'purple', margin:1}} onChange={(event, newValue) => setRating(newValue)} required/>
-            </Grid>
-            <Grid item xs={4}>
-              <p>{labels[rating] || ''}</p>
-            </Grid>
             <Grid container>
-              <Grid item xs={3}/>
-              <Grid item xs={6}>
-                <FormControl>
-                  <Grid item xs={12}>
-                    <FormLabel component="legend">Do you recommend this product?</FormLabel>
-                  </Grid>
-                  <RadioGroup aria-label="recommend" required onChange={handleRecommended} value={recommend}>
-                    <Grid container>
-                      <Grid item xs={6}>
-                        <FormControlLabel value={true} control={<Radio/>} label="Yes" labelPlacement="top"/>
-                      </Grid>
-                      <Grid item xs={6}>
-                        <FormControlLabel value={false} control={<Radio/>} label="No" labelPlacement="top"/>
-                      </Grid>
-                    </Grid>
-                  </RadioGroup>
-                </FormControl>
+              <Grid item>
+                <Rating sx={{color:'black'}} onChange={(event, newValue) => setRating(newValue)} required/>
               </Grid>
-              <Grid item xs={3}/>
+              <Grid item>
+                <p>{labels[rating] || ''}</p>
+              </Grid>
             </Grid>
+            <FormControl>
+              <FormLabel component="legend">Do you recommend this product?</FormLabel>
+              <RadioGroup aria-label="recommend" required onChange={handleRecommended} value={recommend}>
+                <FormControlLabel value={true} control={<Radio/>} label="Yes"/>
+                <FormControlLabel value={false} control={<Radio/>} label="No"/>
+              </RadioGroup>
+            </FormControl>
               {/* {characteristics.map((characteristic) => {
                 var tempId = props.characteristics[characteristic].id;
                 setCharacteristicValue({...characteristicValue, ...{tempId: null}})
                 return (
                   <CharacteristicForm characteristic={characteristic} descriptions={characteristicDescriptions} charValues={characteristicValue} setCharValues={setCharacteristicValue} id={props.characteristics[characteristic].id}/>
-                  )
-                })} */}
-            <Grid item xs={12}>
-              <TextField label="Review Summary" defaultValue="Example: Best purchase ever!" inputProps={{maxLength:'60ch'}} onChange={handleReviewSummary} value={reviewSummary}/>
-            </Grid>
-          </Grid>
+                )
+              })} */}
+            <TextField label="Review Summary" defaultValue="Example: Best purchase ever!" inputProps={{maxLength:'60ch'}} onChange={handleReviewSummary} value={reviewSummary}/>
             <TextField label="Review body" size='large' inputProps={{maxLength: '1000ch', minLength: '50ch' }} required onChange={handleReviewBody} value={reviewBody}/>
             <button onClick={handleUpload}>Upload Photos</button>
             <Dialog open={upload} onClose={handleCloseUpload}>
@@ -133,6 +117,7 @@ export default function ReviewForm(props) {
             <TextField label="What is your nickname?" defaultValue="Example : jackson11!" inputProps={{maxLength:'60ch'}} required onChange={handleUsername} value={username}/>
             <TextField label="Email" defaultValue="Example : jackson11@email.com" inputProps={{maxLength:'60ch'}} required onChange={handleEmail} value={email}/>
             <button>Submit Review</button>
+          </Grid>
         </form>
       </Dialog>
     </div>
