@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import Grid from '@mui/material/Grid';
+
 
 export default function ReviewBody(props) {
   const [showAll, setShowAll] = useState(false);
@@ -21,30 +21,12 @@ export default function ReviewBody(props) {
   if (props.text.length>250) {
     return (
       <div>
-        {showAll ? <div>
-          <p className="reviewBody">{body}</p>
-          <Grid container>
-            <Grid item xs={4}/>
-            <Grid item xs={4}>
-              <button className="reviewBodyButton" onClick ={handleShowLess}>Show Less</button>
-            </Grid>
-            <Grid item xs={4}/>
-          </Grid>
-        </div> : <div >
-          <p className="reviewBody">{body}</p>
-          <Grid container>
-            <Grid item xs={4}/>
-            <Grid item xs={4}>
-              <button className="reviewBodyButton" onClick={handleShowMore}>Show More</button>
-            </Grid>
-            <Grid item xs={4}/>
-          </Grid>
-        </div>}
+        {showAll ? <div><p>{body}</p><button onClick ={handleShowLess}>Show Less</button></div> : <div><p>{body}</p><button onClick={handleShowMore}>Show More</button></div>}
       </div>
     )
   } else {
     return (
-      <p className="reviewBody">{props.text}</p>
+      <p>{props.text}</p>
     )
   }
 }
