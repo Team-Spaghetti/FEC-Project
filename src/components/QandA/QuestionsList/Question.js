@@ -81,7 +81,7 @@ var Question = ({question}) => {
   return (
     <Box width='100%'>
       <Grid container >
-        <Grid item><b> Q: {question.question_body} </b></Grid>
+        <Grid item><b dangerouslySetInnerHTML={{ __html: `Q: ${question.question_body} `}}></b></Grid>
         <Grid item md></Grid>
         <Grid item > Helpful?
           {

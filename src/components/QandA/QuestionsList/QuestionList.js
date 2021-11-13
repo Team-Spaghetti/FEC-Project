@@ -30,11 +30,19 @@ var QuestionList = ({questions}) => {
     if (text.length < 3) {
       chooseQuestions(questions.slice(0, 4));
       setDisplay('More Answered Questions')
-    } else chooseQuestions(questions.filter(question => {
-      let questionBody = question.question_body.toLowerCase();
+    } else {
+      let candidates = [];
       let newText = freshText.toLowerCase();
-      return questionBody.includes(newText);
-    }))
+      questions.forEach(question => {
+        let questionBody = question.question_body.toLowerCase();
+        if (question.question_body.includes(freshText)){
+          let candidate = JSON.parse(JSON.stringify(question));
+          candidate.question_body = candidate.question_body.replace(freshText, `<mark>${freshText}</mark>`);
+          candidates.push(candidate);
+        }
+      })
+      chooseQuestions(candidates);
+    }
   };
 
   useEffect(() => {chooseQuestions(questions.slice(0,4))}, [questions]);
@@ -71,3 +79,4 @@ export default QuestionList;
 // setting up possibility of different state for search questions
 //
 
+// by default reacktJS escapes html to safeguard xss attacks, to get around this, you need to use the dangerouslySetInnerHTML tag
