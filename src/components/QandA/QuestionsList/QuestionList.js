@@ -71,21 +71,3 @@ export default QuestionList;
 // setting up possibility of different state for search questions
 //
 
-// {
-//   let candidates = [];
-//   //  steps
-//   // check to see if question body contains text
-//   // if so, collect the modified questions
-//   // eventually use these to update state
-//   questions.filter(question => {
-//     let questionBody = question.question_body.toLowerCase();
-//     let newText = freshText.toLowerCase();
-//     if (questionBody.includes(freshText)) {
-//       let potential = JSON.parse(JSON.stringify(question));
-//       potential.question_body = potential.question_body.replace(freshText, `<marker>${freshText}</marker>`)
-//       return true;
-//     };
-//     return false;
-//   })
-//   chooseQuestions()
-// }
