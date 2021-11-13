@@ -1,3 +1,4 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
 h1 {
   color: white;
   background-color: black;
@@ -47,7 +48,7 @@ button:hover{
   color:coral;
   text-decoration: none;
   cursor:pointer;
-@import "~react-image-gallery/styles/css/image-gallery.css";
+
 }
 
 body{
@@ -58,6 +59,10 @@ body{
 
 .app{
   display: flex;
+}
+
+marker {
+  background-color: yellow;
 }
 
 .see-reviews {

@@ -30,11 +30,11 @@ var QuestionList = ({questions}) => {
     if (text.length < 3) {
       chooseQuestions(questions.slice(0, 4));
       setDisplay('More Answered Questions')
-     } else chooseQuestions(questions.filter(question => {
-       let questionBody = question.question_body.toLowerCase();
-       let newText = freshText.toLowerCase();
-       return questionBody.includes(newText);
-      }));
+    } else chooseQuestions(questions.filter(question => {
+      let questionBody = question.question_body.toLowerCase();
+      let newText = freshText.toLowerCase();
+      return questionBody.includes(newText);
+    }))
   };
 
   useEffect(() => {chooseQuestions(questions.slice(0,4))}, [questions]);
@@ -70,3 +70,22 @@ export default QuestionList;
 
 // setting up possibility of different state for search questions
 //
+
+// {
+//   let candidates = [];
+//   //  steps
+//   // check to see if question body contains text
+//   // if so, collect the modified questions
+//   // eventually use these to update state
+//   questions.filter(question => {
+//     let questionBody = question.question_body.toLowerCase();
+//     let newText = freshText.toLowerCase();
+//     if (questionBody.includes(freshText)) {
+//       let potential = JSON.parse(JSON.stringify(question));
+//       potential.question_body = potential.question_body.replace(freshText, `<marker>${freshText}</marker>`)
+//       return true;
+//     };
+//     return false;
+//   })
+//   chooseQuestions()
+// }
