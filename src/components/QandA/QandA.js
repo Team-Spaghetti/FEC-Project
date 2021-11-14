@@ -11,16 +11,9 @@ const product_id = require('./productId');
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 
-const styles = {
-  bgcolor: 'background.paper',
-  top: '50%',
-  left: '50%',
-  display: 'flex',
-  flexDirection: 'column',
-  p: 3.5,
-  transform: 'translate(-50%, -50%)',
-  width: '40%',
-  height: '55%',
+const style = {
+  paddingTop: '15px',
+  paddingBottom: '15px',
 }
 
 var QandA = (props) => {
@@ -31,14 +24,12 @@ var QandA = (props) => {
   useEffect(() => {
     axios
       .get('http://localhost:3000/qa/questions', { params: { product_id } })
-      .then(response => {
-        setQuestions(response.data.results);
-      })
+      .then(response => setQuestions(response.data.results))
       .catch(err => console.error(err));
   }, [])
 
   return(
-    <Grid container>
+    <Grid container sx={style}>
       <Grid item xs={2}></Grid>
       <Grid item xs={8}>
         <Stack direction="column" spacing={1} >

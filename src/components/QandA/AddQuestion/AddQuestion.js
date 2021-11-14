@@ -17,8 +17,8 @@ const initialValues = {
 var AddQuestion = () => {
   const [open, setOpen] = useState(false);
 
-  var handleOpen = () => setOpen(true);
-  var handleClose = () => setOpen(false);
+  var handleOpen = () => {setOpen(true)};
+  var handleClose = () => {setOpen(false)};
 
   const validate = (formValues = values) => {
 
