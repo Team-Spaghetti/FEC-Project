@@ -2,6 +2,11 @@ var express = require('express');
 var app = express();
 var axios = require('axios');
 var cors = require('cors');
+var path = require('path');
+
+app.use(express.static(__dirname + '/../dist'))
+app.use(express.json());
+app.use(cors());
 
 var questions = require('./QuestionsAndAnswers/questions');
 var answers = require('./QuestionsAndAnswers/answers');
@@ -9,9 +14,6 @@ var reviews = require('./reviews/reviews.js');
 var products = require('./products&cart/products.js');
 var cart = require('./products&cart/cart.js');
 var interactions = require ('./interactions/interactions.js');
-
-app.use(express.json());
-app.use(cors());
 
 app.use('/qa/questions', questions);
 app.use('/qa/answers', answers);
