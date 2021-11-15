@@ -36,7 +36,9 @@ var QandA = (props) => {
           <Typography
             variant="h6"
             component="div"
-          >QUESTIONS & ANSWERS</Typography>
+          >
+            QUESTIONS & ANSWERS
+          </Typography>
           <QuestionList questions={questions} />
           <CssBaseline />
         </Stack>

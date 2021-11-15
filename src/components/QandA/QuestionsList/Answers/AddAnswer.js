@@ -74,3 +74,9 @@ export default AddAnswer;
 // dangerous html-done
 // style buttons and answer date font sizes
 // look into require and import documentation
+// make search bar show the product you're on
+// set a minimum width
+// for clickable items on the page, set cursor to pointer
+// make the width of images tp 100% of the container element
+// then you can set the container element to a fixed width
+// formic

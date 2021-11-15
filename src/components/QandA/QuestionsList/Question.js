@@ -26,6 +26,7 @@ var Question = ({question}) => {
     reset();
     setOpen(true);
   };
+
   var handleClose = () => setOpen(false);
 
   const validate = (formValues = values) => {
@@ -50,7 +51,7 @@ var Question = ({question}) => {
       ...temp
     })
 
-    return Object.values(temp).every(error => error === '');
+    if (formValues === values) return Object.values(temp).every(error => error === '');
   }
 
   const {
@@ -116,7 +117,7 @@ var Question = ({question}) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
-        <TemplateForm>
+        <TemplateForm autoComplete="off">
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <em>Camo Onesie: </em>{question.question_body}
           </Typography>

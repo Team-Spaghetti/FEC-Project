@@ -22,12 +22,12 @@ var QuestionList = ({questions}) => {
   var [text, setText] = useState('');
   var [display, setDisplay] = useState('More Answered Questions')
 
-  var loadQuestions = (display) => {
+  var loadQuestions = display => {
     display === 'More Answered Questions' ? chooseQuestions(questions) : chooseQuestions(questions.slice(0, 4));
   }
 
   var handleSearch = freshText => {
-    if (text.length < 3) {
+    if (freshText.length < 3) {
       chooseQuestions(questions.slice(0, 4));
       setDisplay('More Answered Questions')
     } else {
