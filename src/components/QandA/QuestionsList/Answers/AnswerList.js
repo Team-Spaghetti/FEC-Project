@@ -13,7 +13,7 @@ var AnswerList = ({ answers }) => {
   var [ansIds, setAnswers] = useState(keys.slice(0,2));
   useEffect(() => {}, [ansIds]);
   var numAns = Object.keys(answers).length;
-  var loadAns = (display) => {
+  var loadAns = display => {
     display === 'LOAD MORE ANSWERS' ? setAnswers(keys) : setAnswers(keys.slice(0, 2));
   }
 

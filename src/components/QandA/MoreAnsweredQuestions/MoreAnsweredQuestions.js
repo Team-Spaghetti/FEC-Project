@@ -4,7 +4,6 @@ import Button from '../formHandlers/controls/button';
 var MoreAnsweredQuestions = ({ numQuestions, loadQuestions, display, setDisplay}) => {
 
   var handleClick = () => {
-    console.log('test');
     loadQuestions(display);
     setDisplay(display === 'More Answered Questions' ? 'Collapse Questions' : 'More Answered Questions');
   }
