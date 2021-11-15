@@ -7,7 +7,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development --watch",
     "build-prod": "webpack --mode production",
-    "start": "webpack serve --hot --mode development",
+    "start": "cd server && nodemon index.js",
     "test": "jest"
   },
   "repository": {
