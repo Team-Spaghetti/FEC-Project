@@ -11,7 +11,6 @@ import { FacebookIcon, TwitterIcon, PinterestIcon } from "react-share";
 export default function ProductInfo() {
   const { product, styleReducer, meta } = useProduct();
   const [styleValue, setStyleValue] = styleReducer;
-  console.log(product);
   return (
     <div className="product-info">
       <div>
