@@ -1,13 +1,10 @@
 CREATE TABLE products (
-    id integer NOT NULL primary key,
+    id integer NOT NULL,
     name character varying,
     slogan character varying,
     description character varying,
     category character varying,
-    default_price integer,
-    features integer [],
-    styles integer [],
-    relatedProducts integer []
+    default_price integer
 );
 
 create table features (
@@ -18,52 +15,70 @@ create table features (
 );
 
 create table styles (
-  id integer not null primary key,
+  id integer not null,
   productId integer,
   name character varying,
   sale_price integer,
   original_price integer,
-  default_style boolean,
-  skus integer [],
-  photos integer []
+  default_style boolean
 );
 
+-- set indices
+--//products
+CREATE INDEX ON products (id);
+CREATE INDEX ON features (productId);
+CREATE INDEX ON relatedProducts (current_product_id);
+CREATE INDEX ON styles (productId);
+CREATE INDEX ON photos (styleId);
+CREATE INDEX ON skus (styleId);
+
 create table skus (
-  id integer not null primary key,
+  id integer not null,
   styleId integer,
   size character varying,
   quantity integer
 );
 
 create table photos (
-  id integer not null primary key,
+  id integer not null,
   styleId integer,
   url character varying,
   thumbnail_url character varying
 );
 
 create table relatedproducts (
-  id integer not null primary key,
+  id integer not null,
   current_product_id integer,
   related_product_id integer
 );
 
-ALTER TABLE products
-ADD CONSTRAINT name_unique UNIQUE (name);
-
 -- //to delete all rows form a table: truncate tablename;
 
-CREATE INDEX ON products (id);
+-- update products
+-- set features = array_append(features, 2)
+-- where id = 2;
 
-update products
-set features = array_append(features, 2)
-where id = 2;
+-- update products
+-- set features = array_append(features, $1)
+-- where id = $2;
 
-update products
-set features = array_append(features, $1)
-where id = $2;
-
-select * from products order by id asc;
+-- select * from products order by id asc;
 
 -- test styles input types
 insert into styles (id, productid, name, sale_price, original_price, default_style) values(6,1,'Dark Grey & Black',null,170,'0');
+
+\copy features from 'productCSV/features.csv' with delimiter ',' csv;
+
+\copy products from 'productCSV/products.csv' with delimiter ',' csv;
+
+\copy styles from 'productCSV/styles.csv' with delimiter ',' csv NULL AS 'null';
+
+\copy photos from 'productCSV/photos.csv' with delimiter ',' csv;
+
+\copy skus from 'productCSV/skus.csv' with delimiter ',' csv;
+
+\copy relatedProducts from 'productCSV/relatedProducts.csv' with delimiter ',' csv;
+
+-- add uniqueness to productId
+-- ALTER TABLE products
+-- ADD CONSTRAINT name_unique UNIQUE (name);

@@ -11,7 +11,7 @@ const pool = new Pool(config);
 
 const simpleLoader = (tableName, table2) => {
 
-  const filePath = path.join(__dirname, `../../csv/${tableName}.csv`); //error if tablename doesn't match csv name. the path is the path from the absolute path + path to csv file from here. if this loader file/csvfolder is moved, must be updated
+  const filePath = path.join(__dirname, `../../productCSV/${tableName}.csv`); //error if tablename doesn't match csv name. the path is the path from the absolute path + path to csv file from here. if this loader file/csvfolder is moved, must be updated
 
   const query = `insert into ${tableName} (${queryInfo[tableName].join(', ')}) values (${Array.from({ length: queryInfo[tableName].length + 1 }, (e, i) => `\$${i}`).slice(1).join(', ')})`;
 
@@ -64,7 +64,7 @@ const simpleLoader = (tableName, table2) => {
 }
 
 // sequence of etl
-// simpleLoader('products');
+simpleLoader('products');
 // simpleLoader('features', 'products');
 // simpleLoader('styles', 'products');
 // simpleLoader('skus', 'styles');
