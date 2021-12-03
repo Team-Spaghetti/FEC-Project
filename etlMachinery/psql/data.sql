@@ -23,15 +23,6 @@ create table styles (
   default_style boolean
 );
 
--- set indices
---//products
-CREATE INDEX ON products (id);
-CREATE INDEX ON features (productId);
-CREATE INDEX ON relatedProducts (current_product_id);
-CREATE INDEX ON styles (productId);
-CREATE INDEX ON photos (styleId);
-CREATE INDEX ON skus (styleId);
-
 create table skus (
   id integer not null,
   styleId integer,
@@ -65,20 +56,29 @@ create table relatedproducts (
 -- select * from products order by id asc;
 
 -- test styles input types
-insert into styles (id, productid, name, sale_price, original_price, default_style) values(6,1,'Dark Grey & Black',null,170,'0');
+'../../'
 
-\copy features from 'productCSV/features.csv' with delimiter ',' csv;
+\copy features from '../../productsCSV/features.csv' with delimiter ',' csv HEADER;
 
-\copy products from 'productCSV/products.csv' with delimiter ',' csv;
+\copy products from '../../productsCSV/products.csv' with delimiter ',' csv HEADER;
 
-\copy styles from 'productCSV/styles.csv' with delimiter ',' csv NULL AS 'null';
+\copy styles from '../../productsCSV/styles.csv' with delimiter ',' csv NULL AS 'null' HEADER;
 
-\copy photos from 'productCSV/photos.csv' with delimiter ',' csv;
+\copy photos  from '../../productsCSV/photos.csv' with delimiter ',' csv HEADER;
 
-\copy skus from 'productCSV/skus.csv' with delimiter ',' csv;
+\copy skus from '../../productsCSV/skus.csv' with delimiter ',' csv HEADER;
 
-\copy relatedProducts from 'productCSV/relatedProducts.csv' with delimiter ',' csv;
+\copy relatedProducts from '../../productsCSV/relatedProducts.csv' with delimiter ',' csv HEADER;
 
 -- add uniqueness to productId
 -- ALTER TABLE products
 -- ADD CONSTRAINT name_unique UNIQUE (name);
+
+-- set indices
+--//products
+CREATE INDEX ON products (id);
+CREATE INDEX ON features (productId);
+CREATE INDEX ON relatedProducts (current_product_id);
+CREATE INDEX ON styles (productId);
+CREATE INDEX ON photos (styleId);
+CREATE INDEX ON skus (styleId);

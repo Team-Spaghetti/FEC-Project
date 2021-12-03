@@ -27,6 +27,10 @@ var QuestionList = ({questions}) => {
   }
 
   var handleSearch = freshText => {
+    const capitalize = str => {
+      let firstLetter = str[0];
+      return firstLetter.toUpperCase() + str.slice(1);
+    }
     if (freshText.length < 3) {
       chooseQuestions(questions.slice(0, 4));
       setDisplay('More Answered Questions')

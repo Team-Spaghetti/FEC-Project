@@ -3,11 +3,11 @@ const fs = require('fs');
 const fastcsv = require('fast-csv');
 const path = require('path');
 const Pool = require('pg').Pool;
-const config = require('./config');
+const psqlConnection = require('./config');
 const queryInfo = require('./queryInfo');
 const url = require('url');
 
-const pool = new Pool(config);
+const pool = new Pool(psqlConnection);
 
 const simpleLoader = (tableName, table2) => {
 
@@ -64,7 +64,7 @@ const simpleLoader = (tableName, table2) => {
 }
 
 // sequence of etl
-simpleLoader('products');
+// simpleLoader('products');
 // simpleLoader('features', 'products');
 // simpleLoader('styles', 'products');
 // simpleLoader('skus', 'styles');

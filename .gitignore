@@ -5,7 +5,7 @@ dist/*
 node_modules/
 *.log
 config.js
-productCSV
+productsCSV
 data
 
 # OS generated files
