@@ -54,14 +54,6 @@ export default function ReviewForm(props) {
     setImageUrl('');
     setUpload(false);
   };
-  const validate = () => {
-    let temp = {};
-    temp.rating = rating ? '' : 'Rating is required.';
-    temp.recommend = recommend ? '' : 'Recommend is required.';
-    temp.reviewBody = reviewBody ? '' : 'Review body is required.';
-    temp.username = username ? '' : 'username is required.';
-    setErrors({...temp});
-  };
   // const characteristics = Object.keys(props.characteristics);
   // const characteristicDescriptions = {
   //   Size: ['A size is too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
@@ -112,10 +104,16 @@ export default function ReviewForm(props) {
                   )
                 })} */}
             <Grid item xs={12}>
-              <TextField label="Review Summary" defaultValue="Example: Best purchase ever!" inputProps={{maxLength:'60ch'}} onChange={handleReviewSummary} value={reviewSummary}/>
+              <FormControl fullwidth sx={{m:1}}>
+                <TextField fullwidth label="Review Summary" defaultValue="Example: Best purchase ever!" inputProps={{maxLength:'60ch'}} onChange={handleReviewSummary} value={reviewSummary}/>
+              </FormControl>
             </Grid>
           </Grid>
-            <TextField label="Review body" size='large' inputProps={{maxLength: '1000ch', minLength: '50ch' }} required onChange={handleReviewBody} value={reviewBody}/>
+            <Grid item xs={12}>
+              <FormControl fullwidth sx={{m:1}}>
+                <TextField label="Review body" size='large' inputProps={{maxLength: '1000ch', minLength: '50ch' }} required onChange={handleReviewBody} value={reviewBody}/>
+              </FormControl>
+            </Grid>
             <button onClick={handleUpload}>Upload Photos</button>
             <Dialog open={upload} onClose={handleCloseUpload}>
                 <TextField label="Image URL" defaultValue="Input your image url here." onChange={handleUrlInput} />
