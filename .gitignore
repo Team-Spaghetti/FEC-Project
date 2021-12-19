@@ -7,6 +7,9 @@ node_modules/
 config.js
 productsCSV
 dataInfo
+config.js
+config.env
+
 
 # OS generated files
 .DS_Store

@@ -20,9 +20,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const url = 'mongodb://localhost:27017/fec';
+// const remoteUrl;
 
 const mongoose = require('mongoose');
+// UNCOMMENT TO USE LOCAL DATABASE
 const connect = mongoose.connect(url);
+
+// UNCOMMENT TO USE REMOTE DATABASE
 
 connect
   .then(db => console.log('Connected!'))
