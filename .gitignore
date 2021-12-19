@@ -6,7 +6,7 @@ node_modules/
 *.log
 config.js
 productsCSV
-data
+dataInfo
 
 # OS generated files
 .DS_Store

@@ -50,7 +50,7 @@ function App() {
 
   return (
   <React.Fragment>
-    <div class="title-header">
+    <div class="title-header"> 
       <h2>Urban Octo Chainsaw Clothing</h2>
     </div>
     <Container>

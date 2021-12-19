@@ -19,7 +19,6 @@ app.use(morgan('dev'))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 const url = 'mongodb://localhost:27017/fec';
 
 const mongoose = require('mongoose');
@@ -75,41 +74,6 @@ app.get('/products/:product_id', (req, res) => {
     })
     .catch(err => console.error('Products error',err))
 });
-
-// // get styles for a particular product
-// app.get('/products/:product_id/styles', (req, res) => {
-//   let product_id = req.params.product_id
-//   let response = {
-//     product_id,
-//   };
-//   async function findStyles(product_id) {
-//     Styles.find({product_id})
-//       .then(styles => {
-//         async function findStyle(styles) {
-//           let newStyles = JSON.parse(JSON.stringify(styles));
-//           for (style of newStyles) {
-//             let styleId = style.id;
-//             await findPhotos(styleId)
-//               .then(newPhotos => style.photos = newPhotos)
-//               .catch(err => {
-//                 console.error(err);
-//                 res.status(400).end()
-//               })
-//             await findSkus(styleId)
-//               .then(newSkus => style.skus = newSkus)
-//               .catch(err => {
-//                 console.error(err);
-//                 res.status(400).end()
-//               })
-//           }
-//           response.results = push(newStyles);
-//           res.send(response);
-//         }
-//         await(findStyle(styles));
-//       })
-//       .catch(err => console.error('Skus Error:', err))
-//   }
-// });
 
 // // get related products for a particular product
 app.get('/products/:product_id/related', (req, res) => {

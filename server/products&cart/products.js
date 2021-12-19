@@ -6,15 +6,7 @@ const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-atx";
 //List Products
 routes.get(`/`, (req, res) => {
   axios
-    .get(`${url}/products`, {
-      params: {
-        page: req.query.page ? req.query.page : null,
-        count: req.query.count ? req.query.count : null,
-      },
-      headers: {
-        Authorization: `${token}`,
-      },
-    })
+    .get(`http://localhost:8080/products`)
     .then((response) => {
       res.status(200).send(response.data);
     })
@@ -26,11 +18,7 @@ routes.get(`/`, (req, res) => {
 //Product Information
 routes.get(`/:product_id`, (req, res) => {
   axios
-    .get(`${url}/products/${req.params.product_id}`, {
-      headers: {
-        Authorization: `${token}`,
-      },
-    })
+    .get(`http://localhost:8080/products/${req.params.product_id}`)
     .then((response) => {
       res.status(200).send(response.data);
     })
@@ -58,12 +46,9 @@ routes.get(`/:product_id/styles`, (req, res) => {
 //Related Products
 routes.get(`/:product_id/related`, (req, res) => {
   axios
-    .get(`${url}/products/${req.params.product_id}/related`, {
-      headers: {
-        Authorization: `${token}`,
-      },
-    })
+    .get(`http://localhost:8080/products/${req.params.product_id}/related`)
     .then((response) => {
+      console.log(response.data);
       res.status(200).send(response.data);
     })
     .catch((err) => {
