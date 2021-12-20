@@ -1,3 +1,9 @@
+
+//environment
+const path = require('path');
+require("dotenv").config({ path: path.join(__dirname, "./config.env") });
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors');
@@ -19,14 +25,20 @@ app.use(morgan('dev'))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const url = 'mongodb://localhost:27017/fec';
-// const remoteUrl;
-
 const mongoose = require('mongoose');
+const config = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
+
+
 // UNCOMMENT TO USE LOCAL DATABASE
-const connect = mongoose.connect(url);
+// const url = 'mongodb://localhost:27017/fec';
+// const connect = mongoose.connect(url, config);
 
 // UNCOMMENT TO USE REMOTE DATABASE
+const remoteUrl = process.env.MONGO_URI;
+const connect = mongoose.connect(remoteUrl, config);
 
 connect
   .then(db => console.log('Connected!'))
