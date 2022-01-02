@@ -20,9 +20,8 @@ This project was a foray into real development where our team was challenged wit
 7: Open localhost:2000 in your browser <br />
 
 --- 
-### Credits
+### Team Members
 
-Team Members:
- - Miguel Regalado <br /> <a href="github.com/miguelmar21"><img src="https://avatars.githubusercontent.com/u/76494184?v=4" href="github.com/miguelmar21" alt="Miguel Regalado" width="100"/></a>
- - Adam Rakla <br /> <a href="github.com/AdamRakla"><img src="https://avatars.githubusercontent.com/u/87730371?v=4" alt="Adam Rakla" width="100"/></a>
- - Prince Addai
+ - Miguel Regalado <br /> <a href="github.com/miguelmar21"><img src="https://avatars.githubusercontent.com/u/76494184?v=4" href="github.com/miguelmar21" alt="Miguel Regalado" width="65"/></a>
+ - Adam Rakla <br /> <a href="github.com/AdamRakla"><img src="https://avatars.githubusercontent.com/u/87730371?v=4" alt="Adam Rakla" width="65"/></a>
+ - Prince Addai <br /> <a href="github.com/PhiAgent"><img src="https://avatars.githubusercontent.com/u/43558797?v=4" alt="Adam Rakla" width="65"/></a>
