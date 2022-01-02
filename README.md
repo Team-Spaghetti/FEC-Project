@@ -22,6 +22,6 @@ This project was a foray into real development where our team was challenged wit
 --- 
 ### Team Members
 
- - Miguel Regalado <br /> <a href="github.com/miguelmar21"><img src="https://avatars.githubusercontent.com/u/76494184?v=4" href="github.com/miguelmar21" alt="Miguel Regalado" width="65"/></a>
- - Adam Rakla <br /> <a href="github.com/AdamRakla"><img src="https://avatars.githubusercontent.com/u/87730371?v=4" alt="Adam Rakla" width="65"/></a>
- - Prince Addai <br /> <a href="github.com/PhiAgent"><img src="https://avatars.githubusercontent.com/u/43558797?v=4" alt="Adam Rakla" width="65"/></a>
+ - Miguel Regalado <br /> <a href="https://github.com/miguelmar21"><img src="https://avatars.githubusercontent.com/u/76494184?v=4" href="github.com/miguelmar21" alt="Miguel Regalado" width="65"/></a>
+ - Adam Rakla <br /> <a href="https://github.com/AdamRakla"><img src="https://avatars.githubusercontent.com/u/87730371?v=4" alt="Adam Rakla" width="65"/></a>
+ - Prince Addai <br /> <a href="https://github.com/PhiAgent"><img src="https://avatars.githubusercontent.com/u/43558797?v=4" alt="Adam Rakla" width="65"/></a>
