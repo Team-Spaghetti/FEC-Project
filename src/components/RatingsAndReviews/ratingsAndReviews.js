@@ -26,7 +26,7 @@ export default function RatingsAndReviews(props) {
           <Grid container>
             <Grid item xs={3}/>
             <Grid item xs={6}>
-              <ReviewForm characteristics={productContext.meta.meta.characteristics}></ReviewForm>
+              <ReviewForm characteristics={productContext.meta.meta.characteristics} name={productContext.product.name}></ReviewForm>
             </Grid>
             <Grid item xs={3}/>
           </Grid>}
