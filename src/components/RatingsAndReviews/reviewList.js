@@ -13,7 +13,7 @@ export default function ReviewList(props) {
 
   //updates Reviews when sort, count, or product_id is changed
   useEffect(()=>{
-    axios.get(`http://localhost:3000/reviews/?count=${count}&sort=${props.sort}&product_id=${38322}`)
+    axios.get(`http://localhost:5000/reviews/?count=${count}&sort=${props.sort}&product_id=${38322}`)
       .then(response => {
         setReviews(response.data.results);
       })

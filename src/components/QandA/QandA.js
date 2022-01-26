@@ -23,7 +23,7 @@ var QandA = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/qa/questions', { params: { product_id } })
+      .get('http://localhost:5000/qa/questions', { params: { product_id } })
       .then(response => setQuestions(response.data.results))
       .catch(err => console.error(err));
   }, [])

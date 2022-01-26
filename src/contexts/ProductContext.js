@@ -18,12 +18,12 @@ export function ProductProvider({ children }) {
 
   function getProduct() {
     axios
-      .get("http://localhost:3000/products/38322")
+      .get("http://localhost:5000/products/38322")
       .then((response) => {
         setProduct(response.data);
         axios
           .get(
-            `http://localhost:3000/reviews/meta?product_id=${response.data.id}`
+            `http://localhost:5000/reviews/meta?product_id=${response.data.id}`
           )
           .then((response) => {
             const ratings = Object.values(response.data.ratings);
@@ -54,7 +54,7 @@ export function ProductProvider({ children }) {
 
   function getStyles() {
     axios
-      .get("http://localhost:3000/products/38322/styles")
+      .get("http://localhost:5000/products/38322/styles")
       .then((response) => {
         setStyles(response.data.results);
         setState({ styleId: response.data.results[0].style_id });

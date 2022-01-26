@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 export default function RatingHelpfulness(props) {
   const [reviewed, setReviewed] = useState(false);
   const handleClick = () => {
-    axios.put(`http://localhost:3000/reviews/${props.review.review_id}/helpful`)
+    axios.put(`http://localhost:5000/reviews/${props.review.review_id}/helpful`)
       .then(reponse =>{
         setReviewed(true);
       })
@@ -16,7 +16,7 @@ export default function RatingHelpfulness(props) {
       })
   };
   const handleReport = () => {
-    axios.put(`http://localhost:3000/reviews/${props.review.review_id}/report`)
+    axios.put(`http://localhost:5000/reviews/${props.review.review_id}/report`)
       .then(response => {
         props.setReported(true);
       })

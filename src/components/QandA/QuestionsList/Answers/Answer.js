@@ -14,7 +14,7 @@ var Answer = ({answer}) => {
   var helpfulFunc = () => {
     markHelpful(1);
     axios
-      .put(`http://localhost:3000/qa/answers/${answer.id}/helpful`)
+      .put(`http://localhost:5000/qa/answers/${answer.id}/helpful`)
       .then(response => console.log('Success'))
       .catch(err => console.error(err))
   }
@@ -22,7 +22,7 @@ var Answer = ({answer}) => {
   var reportedFunc = () => {
     report(1);
     axios
-      .put(`http://localhost:3000/qa/answers/${answer.id}/report`)
+      .put(`http://localhost:5000/qa/answers/${answer.id}/report`)
       .then(response => console.log('Success'))
       .catch(err => console.error(err))
   }
@@ -33,6 +33,7 @@ var Answer = ({answer}) => {
         <b>A: </b>{answer.body}
       </Box>
       <Box>
+        <small>
         by {`${answer.answerer_name}, ${new Date(answer.date).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -42,36 +43,18 @@ var Answer = ({answer}) => {
         &nbsp; | &nbsp;
         Helpful?
         {
-          helpful > 0 ?
-            <Button
-              text={`Yes(${answer.helpfulness + 1})`}
-              variant="outlined"
-              size="small"
-            /> :
-            <Button
-              text={`Yes(${answer.helpfulness})`}
-              variant="outlined"
-              size="small"
-              onClick={helpfulFunc}
-              underline={true}
-            />
+          <a onClick={() => !helpful && helpfulFunc()}>
+            <u>Yes</u>
+            ({answer.helpfulness + helpful})
+          </a>
         }
         &nbsp; | &nbsp;
         {
-          reported > 0 ?
-            <Button
-              text="Reported"
-              variant="outlined"
-              size="small"
-            /> :
-            <Button
-              text="Report"
-              variant="outlined"
-              onClick={reportedFunc}
-              size="small"
-              underline={true}
-            />
+          <a onClick={() => !reported && reportedFunc()}>
+            <u>{reported ? 'Reported' : 'Report'}</u>
+          </a>
         }
+        </small>
       </Box>
     </Box>
   )

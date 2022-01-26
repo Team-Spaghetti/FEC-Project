@@ -68,7 +68,7 @@ var Question = ({question}) => {
       handleClose();
       reset();
       axios
-        .post(`http://localhost:3000/qa/questions/${question.question_id}/answer`, { body: values.answer, name: values.nickname, email: values.email, photos: [] })
+        .post(`http://localhost:5000/qa/questions/${question.question_id}/answer`, { body: values.answer, name: values.nickname, email: values.email, photos: [] })
         .then(response => console.log('Success'))
         .catch(err => console.error(err))
     }
@@ -77,7 +77,7 @@ var Question = ({question}) => {
   var helpfulFunc = () => {
     markHelpful(1);
     axios
-      .put(`http://localhost:3000/qa/questions/${question.question_id}/helpful`)
+      .put(`http://localhost:5000/qa/questions/${question.question_id}/helpful`)
       .then(response => console.log('Success'))
       .catch(err => console.error(err))
   }
@@ -87,30 +87,16 @@ var Question = ({question}) => {
       <Grid container >
         <Grid item><b dangerouslySetInnerHTML={{ __html: `Q: ${question.question_body} `}}></b></Grid>
         <Grid item md></Grid>
-        <Grid item > Helpful?
-          {
-          helpful > 0 ?
-              <Button
-                text={`Yes(${question.question_helpfulness + 1})`}
-                variant="outlined"
-                size="small"
-              /> :
-              <Button
-                text={`Yes(${question.question_helpfulness})`}
-                variant="outlined"
-                size="small"
-                onClick={helpfulFunc}
-                underline={true}
-              />
-          }
+        <Grid item > <small>Helpful?&nbsp;
+            <a onClick={() => !helpful && helpfulFunc()}>
+              <u>Yes</u>
+              ({question.question_helpfulness + helpful})
+            </a>
           &nbsp; | &nbsp;
-          <Button
-            text="Add Answer"
-            variant="outlined"
-            size="small"
-            onClick={handleOpen}
-            underline={true}
-          />
+          <a onClick={handleOpen}>
+            <u>Add Answer</u>
+          </a>
+          </small>
         </Grid>
       </Grid>
       <Modal open={open}

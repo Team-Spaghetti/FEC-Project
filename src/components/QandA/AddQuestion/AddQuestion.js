@@ -62,7 +62,7 @@ var AddQuestion = () => {
       handleClose();
       reset();
       axios
-      .post(`http://localhost:3000/qa/questions/${product_id}/question`, {body: values.question, name: values.nickname, email: values.email, product_id})
+      .post(`http://localhost:5000/qa/questions/${product_id}/question`, {body: values.question, name: values.nickname, email: values.email, product_id})
       .then(response => console.log('Success'))
       .catch(err => console.error(err))
     }

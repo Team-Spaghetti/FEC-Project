@@ -8,7 +8,8 @@
     "build-dev": "webpack --mode development --watch",
     "build-prod": "webpack --mode production",
     "start": "webpack serve --hot --mode development",
-    "test": "jest"
+    "test": "jest",
+    "go": "node server/index.js"
   },
   "repository": {
     "type": "git",

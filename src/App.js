@@ -11,7 +11,7 @@ function App() {
 
   function sendInteraction(element, widget, time) {
     axios({
-      url: "http://localhost:3000/interactions",
+      url: "http://localhost:5000/interactions",
       method: "post",
       data: {
         element: element,
@@ -50,7 +50,7 @@ function App() {
 
   return (
   <React.Fragment>
-    <div class="title-header"> 
+    <div class="title-header">
       <h2>Urban Octo Chainsaw Clothing</h2>
     </div>
     <Container>
