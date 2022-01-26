@@ -119,7 +119,7 @@ Don't forget to give the project a star! Thanks again!
 
 ### Creators
 
-Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
+Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.linkedin.com/in/adam-rakla/)
 
 Miguel Regalado - [@miguelmar21](https://github.com/miguelmar21)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
