@@ -73,7 +73,7 @@
    ```
 4. Enter your token in `config.js`
    ```js
-   const TOKEN = 'ENTER YOUR API';
+   const TOKEN = 'ENTER YOUR TOKEN';
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
