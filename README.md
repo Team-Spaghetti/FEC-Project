@@ -114,7 +114,7 @@ Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.l
 
 Miguel Regalado - [@miguelmar21](https://github.com/miguelmar21)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
-Prince Addai [@PhiAgent](https://github.com/PhiAgent)|[LinkedIn](https://www.linkedin.com/in/prince-gyekye-addai/)
+Prince Addai - [@PhiAgent](https://github.com/PhiAgent)|[LinkedIn](https://www.linkedin.com/in/prince-gyekye-addai/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
