@@ -73,12 +73,15 @@
    ```js
    const TOKEN = 'ENTER YOUR TOKEN';
    ```
-5. On two split terminals: <br />
+5. Enter into terminal: <br /> 
     ```
        npm start 
+    ```
+6. Open a new terminal and enter: 
+    ```
        npm run build-dev 
     ```
-6. Open localhost:3000 in your browser <br />
+7. Open localhost:3000 in your browser <br />
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
