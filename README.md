@@ -110,11 +110,11 @@ Don't forget to give the project a star! Thanks again!
 
 ### Creators
 
+Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
+
 Miguel Regalado - [@miguelmar21](https://github.com/miguelmar21)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
 Prince Addai [@PhiAgent](https://github.com/PhiAgent)|[LinkedIn](https://www.linkedin.com/in/prince-gyekye-addai/)
-
-Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
