@@ -24,10 +24,8 @@
     <li>
       <a href="#installation">Installation</a>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -112,9 +110,9 @@ Don't forget to give the project a star! Thanks again!
 
 ### Creators
 
-Miguel Regalado - [@miguelmar21](https://github.com/Team-Spaghetti/FEC-Project/issues)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
+Miguel Regalado - [@miguelmar21](https://github.com/miguelmar21)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
-Prince Addai - [@PhiAgent](https://github.com/PhiAgent)|[LinkedIn](https://www.linkedin.com/in/prince-gyekye-addai/)
+Prince Addai [@PhiAgent](https://github.com/PhiAgent)|[LinkedIn](https://www.linkedin.com/in/prince-gyekye-addai/)
 
 Adam Rakla - [@AdamRakla](https://github.com/AdamRakla)|[LinkedIn](https://www.linkedin.com/in/miguel-regalado/)
 
