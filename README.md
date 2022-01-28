@@ -35,6 +35,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+A fullstack ecommerce web application featuring a filterable reviews catalog, question and reporting persistence, full-screen product display support and real-time validation and sanitation of user feedback.
 
 [![Product Name Screen Shot][product-screenshot]]
 
